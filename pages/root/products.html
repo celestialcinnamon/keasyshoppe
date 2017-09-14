@@ -1,0 +1,960 @@
+<!-- Declare HTML5 usage -->
+<!DOCTYPE html>
+
+<!-- Declare English as the page's language -->
+<html lang="en">
+
+    <head>
+        <!-- Enable the site for mobile devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Use Unicode for the site -->
+        <meta charset="utf-8">
+
+        <!-- Set the site's title -->
+        <title>Products &middot; Casey's Online Shop</title>
+
+        <!-- Link the stylesheets -->
+        <link rel="stylesheet" href="../../css/materialdesignicons.css">
+
+        <link rel="stylesheet" href="../../css/materialize.css">
+        <link rel="stylesheet" href="../../css/style.css">
+    </head>
+
+    <body onload="$('#feature1.tap-target').tapTarget('open');">
+        <!-- Navbar -->
+        <!-- Fix the navbar to the top of the browser -->
+        <div class="navbar-fixed">
+            <!-- Actual navbar -->
+            <nav class="sad-crimson">
+                <div class="nav-wrapper">
+                    <!-- Hamburger menu for mobile -->
+                    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+
+                    <!-- Logo sa Navigation Bar -->
+                    <span class="brand-logo">Products</span>
+                    <ul class="right">
+                        <li><a href="#!" class="waves-effect"><i class="material-icons">refresh</i></a></li>
+                        <li><a href="#!" class="waves-effect dropdown-button" data-activates="more" data-hover="false" data-belowOrigin="true"><i class="material-icons">more_vert</i></a></li>
+                    </ul>
+                    <form id="search" class="container hide-on-med-and-down">
+                        <div class="input-field sad-search-on-nav" style="margin-left: 65px;">
+                            <input class="sad-search-on-nav" style="margin: 0 !important;" placeholder="Search for a product" autocomplete="" id="search"
+                                type="search" required>
+                            <label class="label-icon" for="search"><i class="material-icons grey-text">search</i></label>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+            <ul id="more" class="dropdown-content black-text">
+                <li><a href="#!" class="black-text waves-effect">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Navigation on mobile -->
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <!-- Profile Banner -->
+                <div class="user-view">
+
+                    <!-- Cover Photo -->
+                    <div class="background">
+                        <img src="../../images/bg.jpg">
+                    </div>
+
+                    <!-- Profile Picture -->
+                    <a href="#!user"><img class="circle" src="../../images/test_dp.jpg"></a>
+
+                    <!-- User Full name -->
+                    <a href="#!name"><span class="white-text name">Caseymars Carriedo</span></a>
+
+                    <!-- User type -->
+                    <a href="#!email"><span class="white-text email">Administrator</span></a>
+                </div>
+            </li>
+
+            <!-- Link to dashboard -->
+            <li><a href="dashboard.html" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a></li>
+
+            <!-- Link to Messages -->
+            <li><a href="messages.html" class="waves-effect"><span id="message-count" class="new badge sad-crimson">3</span><i class="material-icons">messages</i>Messages</a></li>
+
+            <!-- Link to Products -->
+            <li><a href="products.html" class="waves-effect"><i class="material-icons">shop</i>Products</a></li>
+
+            <!-- Dropdown to Customers -->
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header waves-effect">Customers<i class="material-icons">arrow_drop_down</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="transactions.html" class="waves-effect">Transactions</a></li>
+                                <li><a href="meetups.html" class="waves-effect"><span id="meetup-count" class="sad-crimson new badge" data-badge-caption="meetups today">4</span>Meetups</a></li>
+                                <li><a href="orders.html" class="waves-effect"><span id="meetup-count" class="sad-crimson new badge" data-badge-caption="new orders">4</span>Orders</a></li>
+                                <li><a href="complaints.html" class="waves-effect">Complaints</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+            <div class="divider"></div>
+            </li>
+            <li><a class="subheader">FOR YOUR CUSTOMERS</a></li>
+            <li><a class="waves-effect" href="../../index.html"><i class="material-icons">store</i>See the store</a></li>
+            <li><a class="waves-effect" href="settings.html"><i class="material-icons">settings</i>Customize the site</a></li>
+
+        </ul>
+        <!-- /Navbar -->
+
+        <!-- Main content -->
+        <main id="main" class="section">
+            <div class="row hide" id="filters">
+                <div class="hide-on-small-only col m4 l4">
+                    <div class="switch">
+                        <label>
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                            Descending
+                        </label>
+                    </div>
+                </div>
+                <div class="col m4 l4 hide-on-small-only">
+                    <form action="">
+                        <div class="input-field">
+                            <i class="material-icons prefix">sort</i>
+                            <select name="" id="" class="sort-options">
+                                <option value="title">By Name</option>
+                                <option value="">By Price</option>
+                                <option value="">By Date Modified</option>
+                                <option value="date-created">By Date Added</option>
+                                <option value="">By Ratings</option>
+                                <option value="">By Number Sold</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="col m4 l4 hide-on-small-only">
+                    <div class="input-field">
+                        <i class="material-icons prefix">apps</i>
+                        <div class="chips-placeholder" id="categories"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Empty State Screen-->
+            <div class="row hide" id="empty-state-screen">
+                <div class="center">
+                    <h5 class="grey-text">You haven't added some products yet.</h5>
+                    <button id="add" class="btn-ghost waves-effect" onclick="$('#filters').fadeToggle(300, null);$('#shuffleContainer').fadeToggle(300, null);$('#empty-state-screen').fadeToggle(300, null);$('#addProduct').slideToggle(300, null); ">ADD NEW PRODUCT</button>
+                </div>
+            </div>
+            <!--/Empty State Screen-->
+
+            <div class="row hide" id="shuffleContainer">
+                <div class="col s12">
+                    <div class="row my-shuffle-container">
+                        <!--<div class="col s12 m6 l3 picture-item" data-groups='["furniture"]' data-date-created="2016-08-12" data-title="Crocodile">
+                            <div class="card sticky-action">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img src="../../images/clothes.jpg" alt="" class="activator">
+
+                                    <span class="card-title activator">Clothes</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">
+                                    <i class="material-icons text-darken-2 yellow-text">star star star star_half star_border</i>
+                                    <a href="#!" class="black-text right waves-effect dropdown-button" data-below-origin="true" data-hover="false" data-activates="card_dropdown"><i class="material-icons">more_vert</i></a>
+                                </span>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">Clothes <i class="material-icons right">close</i></span>
+                                    <p class="sad-roboto-light">Stylish shirt that works for casual and formal atmospheres.</p>
+                                    <p class="sad-roboto-medium">CATEGORIES</p>
+                                    <div class="sad-chips">
+                                        <a href="#!" class="chip waves-effect">Clothes</a>
+                                        <a href="#!" class="chip waves-effect">Lifestyle</a>
+                                    </div>
+                                    <div class="sad-product-images">
+                                        <div class="sad-product-image-item">
+                                            <img src="../../images/products/Dabics.jpg" alt="">
+
+                                        </div>
+                                        <div class="sad-product-image-item">
+                                            <img src="../../images/products/Dabics.jpg" alt="">
+
+                                        </div>
+                                        <div class="sad-product-image-item">
+                                            <img src="../../images/products/Dabics.jpg" alt="">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="btn-flat waves-effect blue-text"><i class="material-icons left">edit</i> Edit</a>
+                                </div>
+                            </div>
+                        </div>-->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="temporaryInsertBox">
+
+                <div class="col s12 m5 l3" id="imageEme">
+                    <div class="card hoverable">
+                        <div class="card-image sad-image-filter-contrast waves-effect waves-block" onclick="$('#uploadMainImage').click()">
+                            <img src="" id="imageMain" width="32" height="300" style="background: rgba(33, 33, 33, .5)" alt="">
+                            <span class="card-title" style="z-index:1">Insert your product's primary image</span>
+                        </div>
+                        <div class="card-content">
+                            <code id="imagePath"></code>
+                        </div>
+                    </div>
+                    <div class="col s12">
+                        <div id="secondaryImages" class="sad-cards-container"></div>
+                    </div>
+                    <button onclick="$('#secondaryImageGetter').click()" class="btn-flat blue-text waves-effect center col s12">
+                        <i class="mdi mdi-image-multiple left"></i>
+                        Add more images
+                    </button>
+                    <div id="error" class="col s12">
+
+                    </div>
+                </div>
+                <form method="POST" action="image-upload.php" enctype="multipart/form-data">
+                    <input type="file" name="uploadMainImage" id="uploadMainImage" accept="image/*" style="display:none;" onchange="openMainImage(this.files)">
+                    <input type="file" multiple accept="image/*" style="display:none;" id="secondaryImageGetter" onchange="openSecondaryImages(this.files)">
+                    <input type="submit" value="Upload Image" name="submit">
+                </form>
+
+                <div class="col 12 m7 l9">
+                    <div class="row">
+                        <div class="col s12 l8">
+                            <div class="input-field">
+                                <input type="text" id="prodName" name="prodName" placeholder="Enter this product's name">
+                                <label for="">Product Name</label>
+                            </div>
+                        </div>
+                        <div class="col s12 l4">
+                            <div class="input-field">
+                                <i class="mdi prefix">P</i>
+                                <input id="prodPrice" name="prodPrice" type="number" placeholder="How much?">
+                                <label for="">Price</label>
+                            </div>
+                        </div>
+
+                        <div class="col s12">
+                            <div class="input-field">
+                                <textarea name="prodDesc" id="prodDesc" cols="30" class="materialize-textarea" placeholder="Give this product a nice introduction."
+                                    rows="10"></textarea>
+                                <label for="">Product Description</label>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <div class="input-field">
+                                <select name="prodCategory" id="prodCategory">
+                                    <option value="1">Cat</option>
+                                </select>
+                                <label for="">Category</label>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 l9">
+                            <div class="input-field">
+                                <div class="chips" id="prodKeywords"></div>
+                                <!-- <label for="">Keywords</label> -->
+                            </div>
+                        </div>
+                        <span class="flow-text col s6">Add custom specs to your item</span>
+                        <div class="col s12 m12 l12">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Spec</th>
+                                        <th>Value</th>
+                                        <th>
+                                            <button class="right blue-text btn-flat waves-effect" onclick="addCustomSpecs()"><i class="mdi mdi-plus"></i></button>
+                                            <script>
+                                                function addCustomSpecs() {
+                                                    $('#customSpecs').append(
+                                                        '<tr>' +
+                                                        ' <td>' +
+                                                        '<div class="input-field">' +
+                                                        '<input type="text" placeholder="E.g. Dimension, height, weight...">' +
+                                                        '</div>' +
+                                                        '</td>' +
+                                                        '<td colspan="2">' +
+                                                        '<div class="input-field">' +
+                                                        '<input type="text" placeholder="E.g. 10x4, 4ft.11in., 9kg">' +
+                                                        '</div>' +
+                                                        '</td>' +
+                                                        '</tr>'
+                                                    );
+                                                }
+
+                                                function addVariants() {
+                                                    $('#variants').append(
+                                                        '<tr>' +
+                                                        '<td>' +
+                                                        '<div class="input-field">' +
+                                                        '<input type="text" placeholder="E.g. Dimension, height, weight...">' +
+                                                        '</div>' +
+                                                        '</td>' +
+                                                        '<td colspan="2">' +
+                                                        '<div class="input-field">' +
+                                                        '<div class="chips-placeholder chips" data-secondaryPlaceholder="Enter a variant"></div>' +
+                                                        '</div>' +
+                                                        '</td>' +
+                                                        '</tr>'
+                                                    );
+                                                }
+
+                                            </script>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="customSpecs">
+                                    <tr>
+                                        <td>
+                                            <div class="input-field">
+                                                <input type="text" placeholder="E.g. Dimension, height, weight...">
+                                            </div>
+                                        </td>
+                                        <td colspan="2">
+                                            <div class="input-field">
+                                                <input type="text" placeholder="E.g. 10x4, 4ft.11in., 9kg">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <span class="flow-text col s6">Add item variants</span>
+                        <p class="container col s12">Variants are the different versions of the same product, like a bag that comes in either red, green,
+                            or blue. Your customers can choose from these different versions.</p>
+                        <div class="col s12 m12 l12">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Spec</th>
+                                        <th>Value</th>
+                                        <th>
+                                            <button class="right blue-text btn-flat waves-effect" onclick="addVariants()"><i class="mdi mdi-plus"></i></button>
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="variants">
+                                    <tr>
+                                        <td>
+                                            <div class="input-field">
+                                                <input type="text" placeholder="E.g. Dimension, height, weight...">
+                                            </div>
+                                        </td>
+                                        <td colspan="2">
+                                            <div class="input-field">
+                                                <div class="chips-placeholder chips" data-secondaryPlaceholder="Enter a variant"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    function saveNewProduct() {
+                        //TODO: format data
+                        //TODO: send data
+                        //TODO: notify user of success or failure
+                        var prodName = $('#prodName').val();
+                        var prodPrice = $('#prodPrice').val();
+                        var prodDesc = $('#prodDesc').val();
+                        var prodCategory = $('#prodCategory').val();
+                        var prodKeywords = $('#prodKeywords').material_chip('data');
+                        var keywords = '{';
+                        for (var index = 0; index < prodKeywords.length; index++) {
+                            var element = prodKeywords[index];
+                            keywords += element.tag;
+                            if (!(index == prodKeywords.length - 1)) {
+                                keywords += ',';
+                            }
+                        }
+                        keywords += "}";
+                        $.ajax({
+                            url: "./insertdata.php",
+                            data: "Name=" + prodName + "&prodDesc=" + prodDesc + "&prodCategory=" +
+                                prodCategory + "&keywords=" + JSON.stringify(keywords) + "&prodPrice=" +
+                                prodPrice,
+                            dataType: 'json',
+                            method: "POST",
+                            success: function (data) {
+                                alert(data);
+                            },
+                            error: function (error) {
+                                $('#error').html(JSON.stringify(error));
+                            }
+                        });
+                    }
+
+                    function FileUpload(img, file) {
+                        var reader = new FileReader();
+                        this.ctrl = createThrobber(img);
+                        //Ito ang mag-a-upload ng picture sa folder ng web site sa htdocs
+                        var xhr = new XMLHttpRequest();
+                        this.xhr = xhr;
+                        var self = this;
+                        //Magsa-start ng request sa localhost para ma-access iyong image-upload.php
+                        xhr.open("POST", "./image-upload.php");
+                        //Ise-set iyong file type ng mga image
+                        xhr.overrideMimeType('text/plain; charset=x-user-defined-binary');
+                        //Kapag nag-load na iyong file-reader (kapag ni-click iyong 'Save')
+                        reader.onload = function (evt) {
+                            //ise-send na iyong data sa localhost
+                            xhr.send(evt.target.result);
+                        }
+                        //iko-convert sa binary iyong mga image
+                        reader.readAsBinaryString(file);
+                    }
+
+                    function openSecondaryImages(files) {
+                        for (var i = 0; i < files.length; i++) {
+                            var file = files[i];
+                            var imageType = /^image\//;
+                            if (!imageType.test(file.type)) continue;
+                            var img = document.createElement('img');
+                            img.file = file;
+                            var reader = new FileReader();
+                            reader.onload = (function (aImg) {
+                                return function (e) {
+                                    aImg.src = e.target.result;
+                                }
+                            })(img);
+                            reader.readAsDataURL(file);
+                            var itemId = Date.now();
+                            $('#secondaryImages').append(
+                                '<div class="">' +
+                                '<div class="card">' +
+                                '<div class="card-image" id="cardImage' + itemId + '"></div>' +
+                                '</div>' +
+                                '</div>'
+                            );
+                            $('#cardImage' + itemId).append($(img));
+                        }
+                    }
+
+                    function openMainImage(files) {
+                        for (var i = 0; i < files.length; i++) {
+                            var file = files[i];
+                            var imageType = /^image\//;
+                            if (!imageType.test(file.type))
+                                continue;
+                            var img = document.getElementById('imageMain');
+                            console.log(img);
+                            img.file = file;
+                            var reader = new FileReader();
+                            reader.onload = (function (aImg) {
+                                return function (e) {
+                                    aImg.src = e.target.result;
+                                };
+                            })(img);
+                            reader.readAsDataURL(file);
+                            $('#imagePath').html(file.name);
+                            $('#imagePath').removeClass('card-title')
+                            console.log(window.URL.createObjectURL(file));
+                        }
+                    }
+                    $('.chips-placeholder').material_chip({
+                        // placeholder: 'Enter category',
+                        // secondaryPlaceholder: 'Enter category',
+                        // autocompleteOptions: {
+                        //     data: {
+                        //         'All': null,
+                        //         'Accessories': null,
+                        //         'Devices': null,
+                        //         'Clothing': null,
+                        //         'Food': null,
+                        //         'Pets': null
+                        //     },
+                        //     limit: Infinity,
+                        //     minLength: 1
+                        // }
+                    });
+
+                </script>
+                <style>
+                    .sad-white-gradient {
+                        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgb(255, 255, 255));
+                        background-image: linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))
+                    }
+
+                </style>
+                <div class="col s12 sad-white-gradient" style="position: fixed; bottom:0; left:0; right:0; z-index:1;">
+                    <div class="row">
+                        <div class="col s6 offset-m8 m2 offset-l10 l1">
+                            <button class="btn-flat waves-effect light-blue-text left">Cancel</button>
+                        </div>
+                        <div class="col s6 m2 l1">
+                            <button class="btn sad-crimson waves-effect right" onclick="saveNewProduct()">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="fixed-action-btn click-to-toggle">
+                <a class="btn-floating btn-large waves-effect waves-light sad-crimson tooltipped" data-tooltip="Add new product" data-position="left"><i class="material-icons">add</i></a>
+            </div>
+        </main>
+
+        <div id="addProduct" class="row">
+
+            <div class="col hide-on-med-and-down l2 section" style="position:fixed;">
+                <div class="wizard table-of-contents section">
+                    <a href="#!" id="lnkNames" class="col l12 active" onclick="showWizardItem('#names', this);">Add new products</a>
+                    <a href="#!" id="lnkImages" class="col l12" onclick="showWizardItem('#images', this);">Add images</a>
+                    <a href="#!" id="lnkDetails" class="col l12" onclick="showWizardItem('#details', this);">Add some details</a>
+                </div>
+                <div class="col s12 section show">
+                    <div class="col s12">
+                        <button class="btn-flat z-depth-0 waves-effect red-text" onclick="$('#addMultiple').modal('close');">Cancel</button>
+                    </div>
+                    <div class="col s12">
+                        <button class="btn-flat z-depth-0 waves-effect disabled" id="btnPrev" onclick="showPreviousWizardItem();">Previous</button>
+                    </div>
+                    <div class="col s12">
+                        <button class="btn-flat z-depth-0 waves-effect">Skip</button>
+                    </div>
+                    <div class="col s12">
+                        <button class="btn sad-crimson z-depth-0 waves-effect" id="btnNext" onclick="showNextWizardItem();encodeData();">Next<i class="material-icons right">chevron_right</i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="hide-on-large-only col s12">
+                <button class="btn-flat z-depth-0 waves-effect disabled" id="btnPrev" onclick="showPreviousWizardItem();"><i class="mdi mdi-skip-previous"></i></button>
+                <button class="btn-flat z-depth-0 waves-effect"><i class="mdi mdi-skip-next"></i></button>
+                <button class="btn sad-crimson z-depth-0 waves-effect right" id="btnNext" onclick="showNextWizardItem();encodeData();">Next<i class="material-icons right">chevron_right</i></button>
+            </div>
+            <div class="section col s12 m12 offset-l2 l10" style="padding-bottom: 65px;" id="wizardItems">
+
+                <div class="" id="names">
+                    <h5>Create the next bestseller</h5>
+                    <p>
+                        You could either add a single product, or bulk add new ones. Just press the
+                        <i class="material-icons">add</i> button.
+                    </p>
+                    <table class="bordered">
+                        <thead>
+                            <th>Product</th>
+                            <th>
+                                <button class="btn-flat waves-effect right" onclick="addNewProdname()"><i class="material-icons">add</i></button>
+                            </th>
+                        </thead>
+                        <tbody id="prodnames">
+                            <form>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="input-field col s12">
+                                            <label for="prodname">Enter product name...</label>
+                                            <input onchange="$('#firstItemImage').html($(this).val())" class="col s12" id="prodname" name="prodname" type="text">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </form>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="hide" id="images" style="background-color:#FAFAFA">
+                    <h5>Give them a show</h5>
+                    <p>
+                        Drag and drop some images, or click the <i class="mdi mdi-image"></i> button.
+                    </p>
+                    <ul class="collapsible" id="imageAccordion" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header" id="firstItemImage"></div>
+                            <div class="collapsible-body">
+                                <div class="sad-drag-box dragover" class="dragdrop">
+                                    <p class="centered">Drop your images here.</p>
+                                </div>
+                                <form action="#">
+                                    <div class="file-field input-field">
+                                        <div class="btn">
+                                            <span>File</span>
+                                            <input type="file" id="imageInput1" multiple>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hide" id="details" style="background-color:#FAFAFA">
+                    <h5>Time for some meat</h5>
+                    <p>Give your customers a <em>taste</em> of what they could have. To add custom specifications to your products,
+                        just press the
+                        <i class="material-icons">add</i> button.
+                    </p>
+                    <ul id="descAccordion" class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header" id="firstItemDesc">Product 1<i class="material-icons right">arrow_drop_down</i></div>
+                            <div class="collapsible-body">
+                                <div class="input-field">
+                                    <textarea name="desc" class="materialize-textarea" id="desc"></textarea>
+                                    <label for="">Give this product a nice introduction...</label>
+                                </div>
+                                <table class="striped">
+                                    <thead>
+                                        <th>Specification</th>
+                                        <th>Value</th>
+                                        <th>
+                                            <button class="btn-flat waves-effect right"><i class="material-icons">add</i></button>
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="input-field">
+                                                    <input type="text" value="Dimensions" placeholder="Specification">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-field">
+                                                    <input type="text" value="24x25x26" placeholder="Value">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button class="btn-flat waves-effect"><i class="material-icons">delete</i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <dialog id="addMultiple" class="modal modal-fixed-footer z-depth-0">
+            <div class="modal-content">
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </dialog>-->
+
+            <script src="../../js/jquery.min.js"></script>
+            <script src="../../js/materialize.min.js"></script>
+            <script src="../../js/actions.js"></script>
+            <script src="../../js/script.js"></script>
+            <script src="../../js/throttle.js"></script>
+            <script src="../../js/shuffle.js"></script>
+            <script>
+                var Shuffle = window.Shuffle;
+                var element = document.querySelector('.my-shuffle-container');
+                var sizer = element.querySelector('.my-sizer-element');
+                var shuffleInstance = new Shuffle(element, {
+                    buffer: 0, // Useful for percentage based heights when they might not always be exactly the same (in pixels).
+                    columnThreshold: 0.01, // Reading the width of elements isn't precise enough and can cause columns to jump between values.
+                    columnWidth: 0, // A static number or function that returns a number which tells the plugin how wide the columns are (in pixels).
+                    delimeter: null, // If your group is not json, and is comma delimeted, you could set delimeter to ','.
+                    easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)', // CSS easing function to use.
+                    filterMode: Shuffle.FilterMode.ANY, // When using an array with filter(), the element passes the test if any of its groups are in the array. With "all", the element only passes if all groups are in the array.
+                    group: Shuffle.ALL_ITEMS, // Initial filter group.
+                    gutterWidth: 0, // A static number or function that tells the plugin how wide the gutters between columns are (in pixels).
+                    initialSort: null, // Shuffle can be initialized with a sort object. It is the same object given to the sort method.
+                    isCentered: false, // Attempt to center grid items in each row.
+                    itemSelector: '*', // e.g. '.picture-item'.
+                    roundTransforms: true, // Whether to round pixel values used in translate(x, y). This usually avoids blurriness.
+                    sizer: null, // Element or selector string. Use an element to determine the size of columns and gutters.
+                    speed: 250, // Transition/animation speed (milliseconds).
+                    staggerAmount: 15, // Transition delay offset for each item in milliseconds.
+                    staggerAmountMax: 150, // Maximum stagger delay in milliseconds.
+                    // throttle: false, // By default, shuffle will throttle resize events. This can be changed or removed.
+                    // throttleTime: 300, // How often shuffle can be called on resize (in milliseconds).
+                    useTransforms: true, // Whether to use transforms or absolute positioning.
+                });
+                $("#categories.chips-placeholder").on("chip.add", function (e, chip) {
+                    triggerCategories();
+                });
+                $("#categories.chips-placeholder").on("chip.delete", function (e, chip) {
+                    triggerCategories();
+                })
+
+                function triggerCategories() {
+                    var chips = $('#categories.chips');
+                    // var recentlyAdded = chips.material_chip('data')[chips.material_chip('data').length - 1].tag;
+                    var arrayOfCategories = [];
+                    var strCategories = '';
+                    for (var index = 0; index < (chips.material_chip('data').length); index++) {
+                        var element = chips.material_chip('data')[index];
+                        arrayOfCategories[index] = element.tag.toLowerCase();
+                        strCategories += arrayOfCategories[index] + ", ";
+                    }
+                    if (arrayOfCategories.length > 0) {
+                        shuffleInstance.filter(arrayOfCategories);
+                    } else {
+                        shuffleInstance.filter();
+                    }
+                }
+
+            </script>
+            <script>
+                $('#addProduct').hide();
+                //Set up a drag-and-drop element
+                var dragdrop = $('.dragbox').get(0);
+                dragdrop.addEventListener('dragenter', dragenter, false);
+                dragdrop.addEventListener('dragover', dragover, false);
+                dragdrop.addEventListener('drop', drop, false);
+
+                function dragenter(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+
+                function dragover(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+
+                function drop(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var dt = e.dataTransfer;
+                    var files = dt.files;
+                    handleFiles(files);
+                }
+
+                function handleFiles(files) {}
+
+                function showWizardItem(domID, domLink) {
+                    var wizardItems = $('#wizardItems');
+                    $('#names').addClass('hide');
+                    $('#images').addClass('hide');
+                    $('#details').addClass('hide');
+                    $(domID).removeClass('hide');
+                    for (var index = 0; index < $('.wizard.table-of-contents').children('a').length; index++) {
+                        var element = $('.wizard.table-of-contents').children('a')[index];
+                        $(element).removeClass('active');
+                    }
+                    $(domLink).addClass('active');
+                    //check if last wizard item; if yes, change btnNext to 'Finish'
+                    if (wizardItems.children('div').index($(domID)) == wizardItems.children('div').length - 1) {
+                        $('#btnNext').attr('data-isFinished', 'true');
+                        $('#btnNext').html('Finish');
+                    }
+                    //check if first wizard item; if yes, change btnPrev to 'disabled'
+                    if (wizardItems.children('div').index($(domID)) == 0) {
+                        $('#btnPrev').addClass('disabled');
+                    } else $('#btnPrev').removeClass('disabled');
+                }
+
+                function showNextWizardItem() {
+                    //check first if the button has [data-isFinished] set to true
+                    if ($('#btnNext').attr('data-isFinished')) {
+                        $('#addMultiple').modal('close');
+                        return;
+                    }
+                    var currentWizardItem = $('#wizardItems').children('div:not(.hide)');
+                    var currentWizardItemLink = $('.wizard.table-of-contents').children('a.active')[0];
+                    var wizardItems = $('#wizardItems').children('div');
+                    var wizardItemLinks = $('.wizard.table-of-contents').children('a');
+                    var currentWizardItemIndex = wizardItems.index(currentWizardItem);
+                    var currentWizardItemLinkIndex = wizardItemLinks.index(currentWizardItemLink);
+                    var wizardItemQty = wizardItems.length;
+                    //check if last item is the current item
+                    if (currentWizardItemIndex == wizardItemQty - 1) return;
+                    //remove '.active' from all wizard item links
+                    for (var index = 0; index < wizardItemLinks.length; index++) {
+                        var element = wizardItemLinks[index];
+                        $(element).removeClass('active');
+                    }
+                    //restore '.active' class to the next wizard item link
+                    $(wizardItemLinks[currentWizardItemLinkIndex + 1]).addClass('active');
+                    //add '.hide' class to all wizard items
+                    for (var index = 0; index < wizardItems.length; index++) {
+                        var element = wizardItems[index];
+                        $(element).addClass('hide');
+                    }
+                    //remove '.hide' class from the next wizard item
+                    $(wizardItems[currentWizardItemIndex + 1]).removeClass('hide');
+                    //check if last wizard item; if yes, change btnNext to 'Finish' 
+                    if (currentWizardItemLinkIndex + 1 == wizardItems.length - 1) {
+                        $('#btnNext').attr('data-isFinished', 'true');
+                        $('#btnNext').html('Finish');
+                    }
+                    //check if the current item is the first item 
+                    console.log(currentWizardItemIndex + 1);
+                    if ((currentWizardItemIndex + 1) == 0) {
+                        $('#btnPrev').addClass('disabled');
+                    } else $('#btnPrev').removeClass('disabled');
+                }
+
+                function showPreviousWizardItem() {
+                    var currentWizardItem = $('#wizardItems').children('div:not(.hide)');
+                    var currentWizardItemLink = $('.wizard.table-of-contents').children('a.active')[0];
+                    var wizardItems = $('#wizardItems').children('div');
+                    var wizardItemLinks = $('.wizard.table-of-contents').children('a');
+                    var currentWizardItemIndex = wizardItems.index(currentWizardItem);
+                    var currentWizardItemLinkIndex = wizardItemLinks.index(currentWizardItemLink);
+                    var wizardItemQty = wizardItems.length;
+                    //remove '.active' from all wizard item links
+                    for (var index = 0; index < wizardItemLinks.length; index++) {
+                        var element = wizardItemLinks[index];
+                        $(element).removeClass('active');
+                    }
+                    //restore '.active' class to the previous wizard item link 
+                    $(wizardItemLinks[currentWizardItemLinkIndex - 1]).addClass('active');
+                    //add '.hide' class to all wizard items 
+                    for (var index = 0; index < wizardItems.length; index++) {
+                        var element = wizardItems[index];
+                        $(element).addClass('hide');
+                    }
+                    //remove '.hide' class from the next wizard item 
+                    $(wizardItems[currentWizardItemIndex - 1]).removeClass('hide');
+                    //check if the current item is the first item
+                    if ((currentWizardItemIndex - 1) == 0) {
+                        $('#btnPrev').addClass('disabled');
+                    } else $('#btnPrev').removeClass('disabled');
+                    //check if last wizard item; if yes, change btnNext to 'Finish' 
+                    console.log('currentWizardItemLinkIndex - 1 = ' + (currentWizardItemLinkIndex - 1));
+                    if (currentWizardItemLinkIndex - 1 <= wizardItems.length - 1) {
+                        $('#btnNext').removeAttr('data-isFinished');
+                        $('#btnNext').html('Next<i class="material-icons right">chevron_right</i>');
+                        console.log('Next<i class="material-icons right">chevron_right</i>');
+                    }
+                }
+
+                function addNewProdname() {
+                    var Id = Date.now();
+                    //add a textbox for the product name
+                    $('#prodnames').append(
+                        '<tr>' +
+                        '<td colspan="2">' +
+                        '<div class="input-field col s12" >' +
+                        '<label for="prodname' + Id + '">Enter product name</label>' +
+                        '<input onchange="$(\'#imageGetterHeader' + Id +
+                        '\').html($(this).val());$(\'#itemDesc' + Id +
+                        '\').html($(this).val())" class="col s12" id="prodname' + Id +
+                        '" name="prodname" type="text">' +
+                        '</div>' +
+                        '</td >' +
+                        '</tr>'
+                    );
+                    //add an image for the newly added product
+                    $('#imageAccordion').append(
+                        '<li>' +
+                        '<div class="collapsible-header" id="imageGetterHeader' + Id + '">Product 1</div>' +
+                        '<div class="collapsible-body">' +
+                        '<div class="sad-drag-box dragover" id="#dragdrop">' +
+                        '<p class="centered">Drop your images here.</p>' +
+                        '</div>' +
+                        '<form action="#">' +
+                        '<div class="file-field input-field">' +
+                        '<div class="btn">' +
+                        '<span>File</span>' +
+                        '<input type="file" id="imageInput" multiple>' +
+                        '</div>' +
+                        '<div class="file-path-wrapper">' +
+                        '<input class="file-path validate" type="text" placeholder="Upload one or more files">' +
+                        '</div>' +
+                        '</div>' +
+                        '</form>' +
+                        '</div>' +
+                        '</li>'
+                    );
+                    //add a description getter for the newly added product
+                    $('#descAccordion').append(
+                        '<li>' +
+                        '<div class="collapsible-header" id="itemDesc' + Id +
+                        '">Product 1<i class="material-icons right">arrow_drop_down</i></div>' +
+                        '<div class="collapsible-body">' +
+                        '<div class="input-field">' +
+                        '<textarea name="desc" class="materialize-textarea" id="desc' + Id + '"></textarea>' +
+                        '<label for="">Give this product a nice introduction...</label>' +
+                        '</div>' +
+                        '<table class="striped">' +
+                        '<thead>' +
+                        '<th>Specification</th>' +
+                        '<th>Value</th>' +
+                        '<th>' +
+                        '<button onclick="addNewSpec(\'spec' + Id +
+                        '\')" class="btn-flat waves-effect right"><i class="material-icons">add</i></button>' +
+                        '</th>' +
+                        '</thead>' +
+                        '<tbody id="spec' + Id + '">' +
+                        '<tr>' +
+                        '<td>' +
+                        '<div class="input-field">' +
+                        '<input type="text" value="Dimensions" placeholder="Specification">' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="input-field">' +
+                        '<input type="text" value="24x25x26" placeholder="Value">' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<button class="btn-flat waves-effect"><i class="material-icons">delete</i></button>' +
+                        '</td>' +
+                        '</tbody>' +
+                        '</table>' +
+                        '</div>' +
+                        '</li>'
+                    );
+                }
+
+                function encodeData() {
+                    $('#firstItemImage').html($('#prodname').val())
+                    $('#firstItemDesc').html($('#prodname').val())
+                    var datum = {
+                        productName: "",
+                        imagePath: "",
+                        description: "",
+                        customAttributes: {}
+                    };
+                    var data = [];
+                    var prodNameChildren = $('#prodnames').find("input[type='text']");
+                    console.log($('#prodnames').children("tr").length);
+                    var prodname = prodNameChildren[0];
+                }
+
+                function addNewSpec(id) {
+                    var tbody = $('#' + id);
+                    console.log(tbody)
+                    tbody.append()
+                    tbody.append(
+                        '<tr>' +
+                        '<td>' +
+                        '<div class="input-field">' +
+                        '<input type="text" value="Dimensions" placeholder="Specification">' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="input-field">' +
+                        '<input type="text" value="24x25x26" placeholder="Value">' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<button class="btn-flat waves-effect"><i class="material-icons">delete</i></button>' +
+                        '</td>' +
+                        '</tr>'
+                    );
+                    console.log('appended')
+                }
+
+            </script>
+    </body>
+
+</html>

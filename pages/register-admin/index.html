@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Register Administrator &middot; Keasyshoppe</title>
+        <link rel="stylesheet" href="../../css/materialize.min.css">
+        <link rel="stylesheet" href="../../css/materialdesignicons.min.css">
+        <link rel="stylesheet" href="../../css/style.css">
+    </head>
+
+    <body class="sad-crimson white-text">
+        <div class="row">
+            <div class="col s12 center-align">
+                <img src="../../images/keasy_logo_white.png" alt="" class="img-responsive">
+
+            </div>
+            <div class="col s12 center">
+
+                <div class="preloader-wrapper small active">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="flow-text">
+                    Preparing for first use...
+                </p>
+                <p class="flow-text" id="status"></p>
+            </div>
+        </div>
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/materialize.min.js"></script>
+        <script src="../../js/script.js"></script>
+        <script>
+            $(document).ready(() => {
+                $('#status').html('<i class="mdi mdi-currency-usd"></i>Opening the cash register...');
+                $.ajax({
+                    url: "./createdb.php",
+                    dataType: 'json',
+                    method: "GET",
+                    success: function (data) {
+                        $('#status').html("Success: " + data.responseText);
+                    },
+                    error: function (error) {
+                        $('#status').html("Error: " + error.responseText);
+                    }
+                });
+            });
+
+        </script>
+    </body>
+
+</html>

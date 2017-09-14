@@ -1,0 +1,409 @@
+<!-- DASHBOARD FOR ADMINISTRATORS -->
+
+<!-- Declare request for HTML5 technologies -->
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Declare English as the page's language -->
+
+    <head>
+        <!-- Notify browser that the page is responsive -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Declare the page's encoding as Unicode -->
+        <meta charset="utf-8">
+
+        <title>Casey's Dashboard &middot; Casey's Online Shop</title>
+
+        <!-- Link the stylesheets -->
+        <link rel="icon" type="image/jpg" href="/opt/lampp/htdocs/K_LOGO.jpg">
+        <link rel="stylesheet" href="../../css/materialize.css">
+        <link rel="stylesheet" href="../../css/style.css">
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <!-- Fix the navbar to the top of the browser -->
+        <div class="navbar-fixed">
+            <!-- Actual navbar -->
+            <nav class="sad-crimson">
+                <div class="nav-wrapper">
+                    <!-- Hamburger menu for mobile -->
+                    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+
+                    <!-- Logo sa Navigation Bar -->
+                    <a href="dashboard.html" data-tooltip="Back to Home" class="tooltipped brand-logo">
+                        <img src="../../images/keasy_logo_white.png" style="width:35%" alt="">
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Navigation on mobile -->
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <!-- Profile Banner -->
+                <div class="user-view">
+
+                    <!-- Cover Photo -->
+                    <div class="background">
+                        <img src="../../images/bg.jpg">
+                    </div>
+
+                    <!-- Profile Picture -->
+                    <a href="#!user"><img class="circle" src="../../images/test_dp.jpg"></a>
+
+                    <!-- User Full name -->
+                    <a href="#!name"><span class="white-text name">Caseymars Carriedo</span></a>
+
+                    <!-- User type -->
+                    <a href="#!email"><span class="white-text email">Administrator</span></a>
+                </div>
+            </li>
+
+            <!--Link to Dashboard-->
+            <li><a href="dashboard.html" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a></li>
+
+            <!-- Link to Messages -->
+            <li><a href="messages.html" class="waves-effect"><span id="message-count" class="new badge sad-crimson">3</span><i class="material-icons">messages</i>Messages</a></li>
+
+            <!-- Link to Products -->
+            <li><a href="inventory.php" class="waves-effect"><i class="material-icons">shop</i>Products</a></li>
+
+            <!-- Dropdown to Customers -->
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header waves-effect">Customers<i class="material-icons">arrow_drop_down</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="transactions.html" class="waves-effect">Transactions</a></li>
+                                <li><a href="meetups.html" class="waves-effect"><span id="meetup-count" class="sad-crimson new badge" data-badge-caption="meetups today">4</span>Meetups</a></li>
+                                <li><a href="orders.html" class="waves-effect"><span id="meetup-count" class="sad-crimson new badge" data-badge-caption="new orders">4</span>Orders</a></li>
+                                <li><a href="complaints.html" class="waves-effect">Complaints</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+            <div class="divider"></div>
+            </li>
+            <li><a class="subheader">FOR YOUR CUSTOMERS</a></li>
+            <li><a class="waves-effect" href="../users/products.html"><i class="material-icons">store</i>See the store</a></li>
+            <li><a class="waves-effect" href="settings.html"><i class="material-icons">settings</i>Customize the site</a></li>
+
+        </ul>
+        <!-- /Navbar -->
+
+        <!-- Main Content -->
+        <main style="margin-top: -10px">
+            <div class="" id="greeting-card">
+                <div class="card light-blue lighten-4 z-depth-0">
+                    <div class="card-content">
+                        <a href="#!" class="btn-flat waves-effect right" onclick="$('#greeting-card').slideUp(300, null);"><i class="material-icons">close</i></a>
+                        <div style="position:absolute; left: 15%; top: 25%;">
+                            <span style="font-size: 50px; " class="card-title sad-roboto-thin sad-greeting">Good morning, Francis!</span>
+                            <p class="flow-text" style="padding: 25px 30px;">This hour is the best time to start working for your goals! You have a bright future ahead of
+                                you. Seize the day!</p>
+                        </div>
+                        <img src="../../images/sun.png" alt="" style="width: 25%">
+                    </div>
+                </div>
+            </div>
+
+            <!--Section, para sa mga cards-->
+            <section class="container section">
+                <!--card para sa Today-->
+                <div class="card z-depth-0 section">
+                    <div>Today</div>
+                    <div class="card">
+                        <!--Tabs para sa card [Inventory, Orders, Messages]-->
+                        <div class="card-tabs">
+                            <!--Tabs-->
+                            <ul class="tabs tabs-transparent tabs-fixed-width sad-crimson">
+                                <li class="tab"><a class=" white-text" href="#inventory">INVENTORY</a></li>
+                                <li class="tab"><a class="active white-text" href="#orders">ORDERS</a></li>
+                                <li class="tab"><a href="#test6">MESSAGES</a></li>
+                            </ul>
+                        </div>
+                        <div class="card-content">
+                            <!--Inventory-->
+                            <div id="inventory">
+                                <span class="card-title">Inventory Card</span>
+                                <table style="overflow-x: visible;" class="bordered striped highlight">
+                                    <thead>
+                                        <tr>
+                                            <th>Item name</th>
+                                            <th>Minimum stock maintaining requirement</th>
+                                            <th>Stocks left</th>
+                                            <th>Stocks needed</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>300 pcs.</td>
+                                            <td>126 pcs.</td>
+                                            <td>174 pcs.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>300 pcs.</td>
+                                            <td>126 pcs.</td>
+                                            <td>174 pcs.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>300 pcs.</td>
+                                            <td>126 pcs.</td>
+                                            <td>174 pcs.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>300 pcs.</td>
+                                            <td>126 pcs.</td>
+                                            <td>174 pcs.</td>
+                                        </tr>
+                                        <tr class="red lighten-4">
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>300 pcs.<i class="material-icons right red-text">warning</i></td>
+                                            <td>6 pcs.</td>
+                                            <td>294 pcs.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>300 pcs.</td>
+                                            <td>126 pcs.</td>
+                                            <td>174 pcs.</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!--Orders-->
+                            <div id="orders">
+                                <div class="sad-tablerizer">
+                                    <span class="flow-text left">Orders<span class="new red badge">15</span></span>
+                                    <a href="#!" class="btn-flat blue-text waves-effect right">See all</a>
+                                </div>
+                                <p class="grey-text hide">No orders yet.</p>
+                                <!--Container para sa mga order-->
+                                <div class="section sad-orders-container">
+                                    <!--Isang row [Maximum of three columns per row]-->
+                                    <div class="sad-table-row">
+                                        <!--Individual Order-->
+                                        <div class="sad-order" id="order_001">
+                                            <!--Link to the user profile na nag-order-->
+                                            <a href="#!"><span class="waves-effect chip"><img src="../../images/testdp2.JPG" alt="">Francis R.</span></a>
+                                            <!--Wrapper para sa lahat ng orders ng user-->
+                                            <div class="sad-order-content-wrapper">
+                                                <!--Isang item na inorder ng user-->
+                                                <div class="sad-order-content light-blue waves-effect">
+                                                    <!--Title ng item na in-order-->
+                                                    <a href="#!" class="flow-text">Kipling Bag</a>
+                                                    <!--Details ng order-->
+                                                    <p>1 piece (P3,000)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="test6">Test 3</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card z-depth-0 section">
+                    <div><a href="#!">Kipling Bag</a> received 13 reviews.</div>
+
+                    <div class="medium card horizontal hide-on-small-only">
+                        <div class="card-image">
+                            <img class="responsive-img activator" src="../../images/products/01.jpg" alt="">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content" style="overflow-y: visible;">
+                                <span class="card-title activator grey-text text-darken-4">Kipling Bag<i class="material-icons right">more_vert</i></span>
+                                <div class="collection">
+                                    <a href="#!" class="waves-effect collection-item center-align">See all reviews...</a>
+                                    <div class="collection-item">
+                                        <a href="#!">
+                                            <span class="chip waves-effect">
+                                                <img src="../../images/test_dp.jpg" alt="">
+                                                Yuna K.
+                                            </span>
+                                        </a>
+                                        <span class="right">
+                                            <i class="material-icons yellow-text text-darken-4">star star star_half star_border star_border</i>                                           
+                                        </span>
+                                        <p>Okay naman siya. Medyo maliit lang iyong bulsa sa may left na part. 'Tapos medyo
+                                            mapresyo siya. Pero maganda naman iyong colors.</p>
+                                    </div>
+                                    <div class="collection-item">
+                                        <a href="#!">
+                                            <span class="chip waves-effect">
+                                                <img src="../../images/alvin.png" alt="">
+                                                Alvin H.
+                                            </span>
+                                        </a>
+                                        <span class="right">
+                                            <i class="material-icons yellow-text text-darken-4">star star star star star</i>
+                                        </span>
+                                        <p>Ang ganda niya. Na-enjoy ko siyang gamitin. Sakto lang siya sa style ko. Puwede siya
+                                            kahit sa formal or casual. Ang ganda.</p>
+                                    </div>
+                                    <div class="collection-item">
+                                        <a href="#!">
+                                            <span class="chip waves-effect">
+                                                <img src="../../images/testdp2.JPG" alt="">
+                                                Francis R.
+                                            </span>
+                                        </a>
+                                        <span class="right">
+                                            <i class="material-icons yellow-text text-darken-4">star star_border star_border star_border star_border</i>
+                                        </span>
+                                        <p>Kamaot mn ani. Wa pa jud ku kasabot sa iyahang description ba kay na, naunsa ba,
+                                            gasayang sayang ra ta ug kwarta ani. Ayaw jud mupalit ani kay madaotan ra mo.
+                                            Bahala namo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Kipling Bag<i class="material-icons right">close</i></span>
+                            <p><strong>DESCRIPTION:</strong> Casually elegant in design, the Kipling bag comes in four colors.</p>
+                            <p><strong>PRICE:</strong> P3,000</p>
+                            <p><strong>RATING:</strong> <i class="right yellow-text text-darken-4 material-icons">star star star star_half star_border</i></p>
+                        </div>
+                    </div>
+
+                    <div class="card hide-on-med-and-up">
+                        <div class="card-image">
+                            <img class="responsive-img activator" src="../../images/products/01.jpg" alt="">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Kipling Bag<i class="material-icons right">more_vert</i></span>
+                                <div class="collection">
+                                    <a href="#!" class="waves-effect collection-item center-align">See all reviews...</a>
+                                    <div class="collection-item">
+                                        <a href="#!">
+                                            <span class="chip waves-effect">
+                                                <img src="../../images/test_dp.jpg" alt="">
+                                                Yuna K.
+                                            </span>
+                                        </a>
+                                        <span class="right">
+                                            <i class="material-icons yellow-text text-darken-4">star star star_half star_border star_border</i>                                           
+                                        </span>
+                                        <p>Okay naman siya. Medyo maliit lang iyong bulsa sa may left na part. 'Tapos medyo
+                                            mapresyo siya. Pero maganda naman iyong colors.</p>
+                                    </div>
+                                    <div class="collection-item">
+                                        <a href="#!">
+                                            <span class="chip waves-effect">
+                                                <img src="../../images/alvin.png" alt="">
+                                                Alvin H.
+                                            </span>
+                                        </a>
+                                        <span class="right">
+                                            <i class="material-icons yellow-text text-darken-4">star star star star star</i>
+                                        </span>
+                                        <p>Ang ganda niya. Na-enjoy ko siyang gamitin. Sakto lang siya sa style ko. Puwede siya
+                                            kahit sa formal or casual. Ang ganda.</p>
+                                    </div>
+                                    <div class="collection-item">
+                                        <a href="#!">
+                                            <span class="chip waves-effect">
+                                                <img src="../../images/testdp2.JPG" alt="">
+                                                Francis R.
+                                            </span>
+                                        </a>
+                                        <span class="right">
+                                            <i class="material-icons yellow-text text-darken-4">star star_border star_border star_border star_border</i>
+                                        </span>
+                                        <p>Kamaot mn ani. Wa pa jud ku kasabot sa iyahang description ba kay na, naunsa ba,
+                                            gasayang sayang ra ta ug kwarta ani. Ayaw jud mupalit ani kay madaotan ra mo.
+                                            Bahala namo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Kipling Bag<i class="material-icons right">close</i></span>
+                            <p><strong>DESCRIPTION:</strong> Casually elegant in design, the Kipling bag comes in four colors.</p>
+                            <p><strong>PRICE:</strong> P3,000</p>
+                            <p><strong>RATING:</strong> <i class="right yellow-text text-darken-4 material-icons">star star star star_half star_border</i></p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <div class="center container section">
+                <button onclick="$('#showmoreSpinner').toggleClass('hide');$('#showmoreButton').toggleClass('hide');" id="showmoreButton"
+                    class="center btn blue waves-effect waves-light">Show More</button>
+                <div class="hide preloader-wrapper active small" id="showmoreSpinner">
+                    <div class="spinner-layer spinner blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- /Main Content -->
+
+        <!-- footer -->
+        <footer class="page-footer grey darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Our Identity</h5>
+                        <p class="grey-text text-lighten-4">From cellphone accessories to your pet's dinner, we've got 'em. Through our long list of categories,
+                            we give you only the best and affordable items. We accept cash on delivery as a mode of payment,
+                            and we deliver your items.We also accept <a href="#!" class="light-blue-text text-lighten-3">resellers</a>,
+                            and they receive P20.00 discount per item.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Links</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2014 Copyright Text
+                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Script files -->
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/materialize.min.js"></script>
+        <script src="../../js/actions.js"></script>
+        <script src="../../js/script.js"></script>
+        <script>
+            function startAnims() {
+                Materialize.showStaggeredList('#staggered-test');
+                Materialize.fadeInImage('#fadeBtn');
+            }
+            var $toastContent = $('<span>I am toast content</span><button class="btn-flat toast-action">Undo</button>');
+
+        </script>
+        <!-- /Script files -->
+    </body>
+
+</html>

@@ -1,0 +1,796 @@
+/*Additional Custom CSS Styles
+by: SADism
+*/
+
+@font-face {
+    font-family: "Roboto Thin";
+    src: local(Roboto Thin), url("../fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("../fonts/roboto/Roboto-Thin.woff") format("woff");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Roboto Light";
+    src: local(Roboto Light), url("../fonts/roboto/Roboto-Light.woff2") format("woff2"), url("../fonts/roboto/Roboto-Light.woff") format("woff");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local(Roboto Regular), url("../fonts/roboto/Roboto-Regular.woff2") format("woff2"), url("../fonts/roboto/Roboto-Regular.woff") format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Roboto Medium";
+    src: local(Roboto Medium), url("../fonts/roboto/Roboto-Medium.woff2") format("woff2"), url("../fonts/roboto/Roboto-Medium.woff") format("woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Roboto Bold";
+    src: local(Roboto Bold), url("../fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("../fonts/roboto/Roboto-Bold.woff") format("woff");
+    font-weight: 700;
+}
+
+.sad-roboto-thin {
+    font-family: "Roboto Thin";
+}
+
+.sad-roboto-light {
+    font-family: "Roboto Light"
+}
+
+.sad-roboto-medium {
+    font-family: "Roboto Medium";
+}
+
+.sad-roboto-bold {
+    font-family: "Roboto Bold"
+}
+
+
+/*Wala siyang `sad-` kasi nasa materializecss siya, pero inedit ko lang.*/
+
+.btn,
+.btn-large,
+.btn-flat {
+    font-family: "Roboto Medium";
+    font-weight: 500;
+}
+
+.sad-image-filter {
+    background: linear-gradient( to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+    background-size: cover;
+    height: 300px;
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+}
+
+.sad-image-filtered {
+    z-index: 999;
+}
+
+.sad-image-filter:hover {
+    transform: scale(1.2, 1.2);
+    transition: all 0.5s ease-in-out;
+}
+
+.sad-image-filter.no-animation {
+    transition: none;
+}
+
+.sad-image-filter.no-animation:hover {
+    transform: none;
+}
+
+.sad-wrapper {
+    overflow: hidden;
+    height: auto;
+}
+
+.sad-scale-down.wrapper {
+    height: 150px;
+}
+
+.sad-scale-down {
+    height: 150px;
+}
+
+.sad-wrapper.sad-little {
+    padding: 10px;
+    margin: 0;
+    font-size: 20px;
+    color: white;
+    height: 150px;
+}
+
+.sad-wrapper.sad-little .sad-image-filter {
+    height: 150px;
+    transform: scale(1.2, 1.2);
+}
+
+.sad-wrapper.little .sad-image-filter:hover {
+    transform: scale(1.4, 1.4);
+}
+
+.waves-effect.sad-waves-light-blue .waves-ripple {
+    background-color: #03a9f4;
+}
+
+.sad-section-header {
+    padding: 10px;
+    font-weight: 500;
+}
+
+.sad-side-scroll {
+    width: 100%;
+    height: 230px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    padding: 3px 10px;
+}
+
+.sad-side-scroll.chips {
+    height: 100px;
+}
+
+.sad-side-scroll::-webkit-scrollbar {
+    height: 3%;
+    background-color: rgba(33, 33, 33, .1);
+    transition: height 1000ms;
+}
+
+.sad-side-scroll::-webkit-scrollbar:hover {
+    height: 5%;
+}
+
+.sad-side-scroll::-webkit-scrollbar-button {
+    width: 0;
+}
+
+.sad-side-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(33, 33, 33, .1);
+    border-radius: 50px;
+}
+
+.sad-for-scroll {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.chip.sad-for-scroll {
+    width: auto;
+    height: auto;
+    display: inline-block;
+}
+
+.sad-for-scroll .card-image .sad-wrapper {
+    height: 200px;
+}
+
+.sad-for-scroll .card-image .sad-wrapper .sad-image-filter {
+    width: 200px;
+    height: 200px;
+}
+
+.sad-wrapper img {
+    visibility: collapse;
+}
+
+.card .card-image .card-title {
+    padding: 12px;
+}
+
+.sad-bestseller-image-text {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 24px;
+}
+
+.sad-filterize {
+    filter: blur(2px) brightness(50%);
+    transition: filter 700ms;
+}
+
+.sad-filterize:hover {
+    transition: filter 700ms;
+    filter: blur(0px) brightness(80%);
+    transition: filter 700ms;
+}
+
+.sad-categories-image {
+    transform: scale(1.3, 1.5) rotate(15deg);
+    transition: filter 700ms, transform 700ms;
+}
+
+.sad-categories-image:hover {
+    transform: scale(1, 1) rotate(0deg);
+    transition: filter 700ms, transform 700ms;
+}
+
+.sad-categories-header {
+    position: absolute;
+    top: 5%;
+    left: 35%;
+}
+
+.sad-caption {
+    text-align: center;
+    overflow: hidden;
+}
+
+.sad-cart {
+    height: 370px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.sad-connect {
+    margin: 10px;
+}
+
+.sad-cards-container {
+    -webkit-column-break-inside: avoid;
+}
+
+.sad-cards-container .card {
+    display: inline-block;
+    overflow: visible;
+}
+
+@media only screen and (max-width: 600px) {
+    .sad-cards-container {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .sad-cards-container {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .sad-cards-container {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+.sad-text-center {
+    text-align: center;
+}
+
+.modal {
+    border: none;
+}
+
+.modal.sad-product-details {
+    width: 98%;
+    height: 85%;
+    max-height: 95%;
+    padding: 0;
+}
+
+.sad-product-image {
+    padding: 0;
+}
+
+.sad-product-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width: 66.66666667%;*/
+    /*margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;*/
+}
+
+.sad-product-chips {
+    margin: 10px 5px;
+}
+
+.sad-product-details-section {
+    margin-top: 75%;
+    padding: 5px 10px;
+    /*overflow-x: hidden;
+    overflow-y: scroll;
+    height: 300px;
+    width: 33.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;*/
+}
+
+@media only screen and (max-width: 600px) {
+    .sad-product-details-section {
+        margin-top: 75%;
+        width: 100%
+    }
+    .sad-product-image img {
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .sad-product-details-section {
+        margin-top: 75%;
+    }
+    .sad-product-image img {
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
+.sad-strip {
+    height: 100%;
+    margin: 0;
+}
+
+@media only screen and (min-width: 993px) {
+    .sad-product-details-section {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 100%;
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .sad-product-image {
+        height: 100%;
+    }
+    .sad-product-image img {
+        width: 66.66666667%;
+        height: 100%;
+    }
+}
+
+.sad-profile-dp {
+    width: 25%;
+}
+
+.sad-comment {
+    border-top: 1px solid rgba(33, 33, 33, .3);
+    padding: 10px;
+}
+
+.sad-comment .sad-profile-dp_comments {
+    width: 10%;
+}
+
+input[type=radio].sad-like-dislike {
+    opacity: 0;
+}
+
+.sad-image-filter-contrast:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+}
+
+.parallax-container.sad-image-filter-contrast:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5));
+    background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5));
+    background-image: linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5));
+    z-index: -1;
+}
+
+.parallax-container.sad-image-filter-contrast *:not(.parallax) {
+    z-index: 1;
+}
+
+.sad-category-icon {
+    position: absolute;
+    left: 5%;
+}
+
+.sad-uniform-card-grid {
+    outline: 1px solid yellow;
+}
+
+.sad-uniform-card-grid .card {
+    width: 4em;
+    float: left;
+    margin-left: 0.2em;
+    background: #ccc;
+}
+
+.sad-grid .card:last-child {
+    margin-right: 0.2em;
+}
+
+.sad-crimson {
+    background-color: crimson !important;
+}
+
+.sad-crimson.lighten {
+    background-color: rgba(220, 20, 60, .5);
+}
+
+.sad-parallax-green {
+    background-color: #00E994;
+}
+
+.sad-parallax-caption {
+    padding: 25px;
+    padding-top: 65px;
+}
+
+.sad-modal-image {
+    position: fixed;
+    top: 0;
+}
+
+.sad-modal-title {
+    position: absolute;
+    bottom: 0;
+}
+
+.sad-icon-disabled {
+    display: none;
+}
+
+.sad-icon-disabled:hover {
+    background-color: transparent !important;
+}
+
+.sad-settings-header {
+    font-size: 16px;
+    font-family: 'Roboto Medium', monospace;
+    color: #9e9e9e !important;
+}
+
+
+/*Override the colors for table of contents*/
+
+.table-of-contents a.active {
+    padding-left: 18px;
+    border-left: 5px solid #2196F3;
+}
+
+.table-of-contents a:hover {
+    color: #a8a8a8;
+    padding-left: 19px;
+    border-left: 2px solid #0D47A1;
+}
+
+
+/*END:=[Override the colors for table of contents]*/
+
+
+/*START:=[Override the margins and paddings for rows]*/
+
+@media only screen and (min-width: 601px) {
+    .sad-message-col {
+        padding: 0 !important;
+        margin: 0 !important;
+        border-left: 1px solid #e0e0e0;
+        position: fixed;
+        top: 65px;
+        bottom: 0;
+        left: 25%;
+        right: 25%;
+        width: 50%;
+        overflow: hidden;
+    }
+    .sad-message-col:first-child,
+    .sad-message-col:last-child {
+        width: 25%;
+        left: unset;
+        right: unset
+    }
+    .sad-message-col:last-child {
+        right: 0;
+    }
+    .sad-message-col.sad-full {
+        width: 51%;
+        left: 25%;
+        position: absolute;
+    }
+    .sad-message-col.sad-full:hover,
+    .sad-message-col.sad-scrollable:hover {
+        /*overflow-y: scroll;*/
+    }
+}
+
+.sad-message-col {
+    position: absolute;
+    overflow-y: scroll;
+    width: 100%;
+    left: 0;
+}
+
+
+/*END:=[Override the margins and paddings for rows]*/
+
+
+/*START:=[Override the search box design on navbar]*/
+
+input[type="search"].sad-search-on-nav {
+    background-color: rgba(33, 33, 33, .25) !important;
+    /*margin: 10px !important;*/
+    /*margin-top: 5px !important;*/
+    padding-left: 56px !important;
+    padding-right: 0;
+    /*margin-right: 10px !important;*/
+    border-radius: 5px !important;
+    border: none;
+    color: #FAFAFA;
+    height: 45px;
+}
+
+input[type="search"]:focus.sad-search-on-nav {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: #FAFAFA !important;
+}
+
+.input-field.sad-search-on-nav {
+    padding: 10px 0;
+    padding-top: 10px;
+    background-color: rgba(33, 33, 33, 0) !important;
+    height: 100%;
+}
+
+
+/*END:=[Override the search box design on navbar]*/
+
+
+/*START:[Messages Text area]*/
+
+.sad-message-textbox {
+    padding: 3px;
+    outline: 1px solid yellow;
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 50%;
+}
+
+
+/*END:[Messages Text area]*/
+
+
+/*START:[ORDERS]*/
+
+.sad-order-content {
+    background-color: #e0f2f1;
+    padding: 20px;
+    margin: 1px 0;
+    display: block;
+}
+
+.sad-order-content:first-child {
+    border-radius: 0;
+    border-top-right-radius: 15px;
+}
+
+.sad-order-content:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.sad-order-content p {
+    padding-top: 10px;
+}
+
+.sad-order-content.sad-crimson {
+    background-color: #FF245C !important;
+}
+
+.sad-order-content.sad-crimson a,
+.sad-order-content.blue a,
+.sad-order-content.light-blue a,
+.sad-order-content.teal a {
+    color: white;
+}
+
+.sad-order-content.sad-crimson p,
+.sad-order-content.sad-crimson span,
+.sad-order-content.light-blue p,
+.sad-order-content.light-blue span,
+.sad-order-content.blue p,
+.sad-order-content.blue span,
+.sad-order-content.teal p,
+.sad-order-content.teal span {
+    color: #EAEAEA;
+}
+
+.sad-order {
+    display: inline-block;
+    overflow: visible;
+}
+
+.sad-table-rows {
+    display: table-row;
+    outline: 1px solid orange;
+    column-count: 3;
+}
+
+.sad-orders-container {
+    -webkit-column-break-inside: avoid;
+}
+
+@media only screen and (max-width: 600px) {
+    .sad-orders-container {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media only screen and (min-width:601px) {
+    .sad-orders-container {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .sad-orders-container {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+.sad-tablerizer {
+    display: table;
+    column-count: 2;
+    width: 100%;
+}
+
+.sad-tablerizer * {
+    display: table-cell;
+}
+
+.remove {
+    display: none;
+}
+
+
+/*END:[ORDERS]*/
+
+.sad-product-images {
+    overflow: visible;
+    display: inline-flex;
+    flex-wrap: nowrap;
+}
+
+.sad-product-images .sad-product-image-item {
+    height: 150px;
+    width: 150px;
+    margin: 5px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.sad-product-images .sad-product-image-item img {
+    height: 150px;
+}
+
+.btn-ghost {
+    margin-top: -2px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 2px solid crimson;
+    background-color: rgba(0, 0, 0, 0);
+    color: crimson;
+    font-family: 'Roboto Medium';
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+
+.btn-ghost-large {
+    padding: 20px 50px;
+    margin: 10px;
+}
+
+.ghost-invert:hover {
+    background-color: rgba(0, 0, 0, 0) !important;
+    color: crimson !important;
+    filter: brightness(1.75);
+}
+
+.ghost-invert {
+    border: 2px solid crimson;
+    background-color: crimson;
+    color: white;
+}
+
+.btn-ghost-white {
+    color: white;
+    border: 2px solid white;
+    background-color: none;
+    text-transform: uppercase;
+    font-family: 'Roboto Medium';
+}
+
+.btn-ghost-white:hover {
+    color: crimson;
+    border: 2px solid white;
+    background-color: white;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+    color: white;
+    background-color: crimson;
+}
+
+ul.sad-wizard-progress {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.sad-wizard-progress li {
+    display: block;
+    border: 2px solid crimson;
+    float: left;
+    margin: 0;
+    border-right: none;
+    font-family: 'Roboto Medium';
+}
+
+ul.sad-wizard-progress li,
+ul.sad-wizard-progress li a {
+    color: crimson;
+}
+
+ul.sad-wizard-progress li a {
+    display: block;
+    padding: 5px 10px;
+}
+
+ul.sad-wizard-progress li a.active {
+    background-color: crimson;
+    color: white;
+}
+
+ul.sad-wizard-progress li:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+ul.sad-wizard-progress li:last-of-type {
+    border-radius: 0 5px 5px 0 !important;
+    border-right: 2px solid crimson !important;
+}
+
+.sad-drag-box {
+    padding: 100px;
+    border: 2px dashed #dc143c;
+    border-radius: 10px;
+    background-color: rgb(220, 20, 60, .25);
+}
+
+.sad-drag-box.dragover {
+    border-color: dodgerblue;
+    background-color: rgba(30, 144, 255, .25)
+}
