@@ -1,141 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta charset="utf-8">
-        <title>SADism</title>
-        <link rel="icon" type="image/png" href="../../images/K LOGO.jpg">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SADism</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../css/materialize.css">
+    <link rel="stylesheet" href="../../css/style.css">
+      <style>
+    
+       #top-level-group {
+            width: 600%;
+            background: white;
+            display: table-row;
+            column-count: 3;
+        }
 
-        <link rel="stylesheet" href="../../../css/materialdesignicons.css">
-        <link rel="stylesheet" href="../../../css/materialize.css">
-        <link rel="stylesheet" href="../../../css/style.css">
-        <style>
-            #top-level-group {
-                width: 600%;
-                background: white;
-                display: table-row;
-                column-count: 3;
-            }
+        #top-level-group ul {
+            float: left;
+            display: table-cell;
+        }
 
-            .parallax {
-                /*height: 500px;*/
-                /*overflow: hidden;*/
-            }
+        .clearfix:before,
+        .clearfix:after {
+            content: '\0020';
+            display: block;
+            overflow: hidden;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+        }
 
-            #top-level-group ul {
-                float: left;
-                display: table-cell;
-            }
+        .clearfix:after {
+            clear: both;
+        }
 
-            .clearfix:before,
-            .clearfix:after {
-                content: '\0020';
-                display: block;
-                overflow: hidden;
-                visibility: hidden;
-                width: 0;
-                height: 0;
-            }
+        .clearfix {
+            zoom: 1;
+        }
+        /* nav ul {
+            margin: 0;
+            padding: 5px;
+        } */
 
-            .clearfix:after {
-                clear: both;
-            }
+        nav ul li {
+            display: inline;
+            position: relative;
+        }
 
-            .clearfix {
-                zoom: 1;
-            }
+        nav ul li div.clearfix {
+            position: absolute;
+            top: -9999px;
+            right: -225%;
+            opacity: 0;
+            transition: top 700ms,;
+        }
 
-            nav ul li {
-                display: inline;
-                position: relative;
-            }
+        nav ul li:hover div {
+            /* left: 0; */
+            top: 65px;
+            transition: top 700ms, opacity 500ms;
+            opacity: 1;
+        }
 
-            nav ul li div.clearfix {
-                position: absolute;
-                top: -9999px;
-                right: -225%;
-                opacity: 0;
-                transition: top 700ms, ;
-            }
+        nav ul li ul li {
+            display: list-item;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            
+        }
+    </style>
+</head>
 
-            .tabs.tabs-transparent .indicator {
-                background-color: #03a9f4;
-            }
+<body onload="fetchProductDetails()">
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper sad-crimson">
+                <a href="#!" class="sad-back-button hide"><i class="material-icons">arrow_back</i></a>
+                <a href="#" class="brand-logo"><img src="" alt=""></a>
+                <ul class="right z-depth-0">
+                    <li><a href="../../index.html" class="waves-effect waves-light">Home</a></li>
+                    <li class="dropdown"><a href="#" class="waves-effect waves-light "><i class="material-icons bt right">arrow_drop_down</i>Categories</a>
+                       <div id="top-level-group" class="clearfix z-depth-1" >
+                            
+                            <ul>
+                                <li><a href="#!" class="materialize-red-text"><i class="material-icons left">child_friendly</i>Baby & Toddler</a></li>
+                                <li><a href="#!" class="materialize-red-text"><i class="material-icons left">devices</i>Devices</a></li>
+                                <li><a href="#!" class="materialize-red-text"><i class="material-icons left">spa</i>Fashion</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#!" class="materialize-red-text"><i class="material-icons left">local_dining</i>Food & Drinks</a></li>
+                                <li><a href="#!" class="materialize-red-text"><i class="material-icons left">fitness_center</i>Health & Beauty</a></li>
+                                <li><a href="#!" class="materialize-red-text"><i class="material-icons left">hotel</i>Home & Living</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#!" class="materialize-red-text"><i class="material-icons left">pets</i>Pets</a></li>
+                                <li><a href="#!" class="materialize-red-text"><i class="material-icons left">beach_access</i>Sports & Outdoors</a></li>
+                                <li><a href="#!" class="materialize-red-text"><i class="material-icons left">toys</i>Toys & Games</a></li>
+                            </ul>
 
-            nav ul li:hover div {
-                /* left: 0; */
-                top: 65px;
-                transition: top 700ms, opacity 500ms;
-                opacity: 1;
-            }
-
-            nav ul li ul li {
-                display: list-item;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                width: 100%;
-            }
-
-        </style>
-    </head>
-
-    <body>
-        <div class="navbar-fixed">
-            <nav class="navbar-extended sad-crimson">
-                <div class="nav-wrapper">
-                    <a href="#!" class="waves-effect left" id="backArrow" style="padding: 0 15px;" onclick="showProductsGrid()"><i class="material-icons">arrow_back</i></a>
-                    <a href="../../../index.html" class="brand-logo"><img src="../../../images/keasy_logo_white.png" style="width:35%" alt=""></a>
-                    <ul class="right">
-                        <li><a href="../../../index.html" class="waves-effect waves-light">Home</a></li>
-                        <li class="dropdown"><a href="#" class="waves-effect waves-light "><i class="material-icons bt right">arrow_drop_down</i>Categories</a>
-                            <div id="top-level-group" class="clearfix z-depth-1 col offset-s3 s12">
-
-                                <ul>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">child_friendly</i>Baby & Toddler</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">devices</i>Devices</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">spa</i>Fashion</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">local_dining</i>Food & Drinks</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">fitness_center</i>Health & Beauty</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">hotel</i>Home & Living</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">pets</i>Pets</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">beach_access</i>Sports & Outdoors</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">toys</i>Toys & Games</a></li>
-                                </ul>
-
-                            </div>
-                        </li>
-                        <li class="active"><a href="../shop-now" class="waves-effect waves-light">Shop Now</a></li>
-                        <li><a href="../../../sign_up.html" class="waves-effect waves-light">Log in</a></li>
-                        <li>
-                            <a class="waves-effect waves-light" id="modal-trigger" href="#cart"><i class="mdi mdi-cart left"></i><span style="border-radius: 50%; background-color:#03a9f4; padding:5px 10px; margin: 0;">4</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
-        <main id="productsGrid">
-            <div class="row">
-                <h3 class="col s12 m12 l4 roboto-light">KeasyShoppe</h3>
-                <div class="col hide-on-med-and-down l3">
-                    <form>
-                        <div class="input-field">
-                            <i class="material-icons prefix">search</i>
-                            <input type="search">
-                            <label for="">Search for an item...</label>
                         </div>
-                    </form>
-                </div>
-                <div class="col hide-on-med-and-down l3 offset-l2">
+                    </li>
+                    <li class="active"><a href="#" class="waves-effect waves-light">Shop Now</a></li>
+                    <li><a href="#" class="waves-effect waves-light">Log in</a></li>
+                   <a class="btn btn-large waves-effect waves-light light-blue" style="background-color: crimson !important;" id="modal-trigger"
+                        href="#modal1"><i class="material-icons">shopping_cart</i><div class="chip">4</div></a>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <div class="row">
+            <h3 class="col s12 m12 l4 roboto-light">KeasyShoppe</h3>
+            <div class="col hide-on-med-and-down l3">
+                <form>
                     <div class="input-field">
-                        <i class="material-icons prefix">sort</i>
-                        <select name="" id="">
+                        <i class="material-icons prefix">search</i>
+                        <input type="search">
+                        <label for="">Search for an item...</label>
+                    </div>
+                </form>
+            </div>
+            <div class="col hide-on-med-and-down l3 offset-l2">
+                <div class="input-field">
+                    <i class="material-icons prefix">sort</i>
+                    <select name="" id="">
                                 <option value="" disabled selected>Sort items by...</option>
                                 <option value="1">Name</option>
                                 <option value="2">Ratings</option>
@@ -143,472 +135,205 @@
                                 <option value="4">Date</option>
                                 <option value="5">Number of buyers</option>
                             </select>
-                    </div>
                 </div>
             </div>
-            <div class="row">
-                <!--Filters-->
-                <div class="row col hide-on-med-and-down l3">
-                    <div class="col hide-on-med-and-down l12 row">
-                        <div class="row">
-                            <a href="#!" class="waves-effect waves-light btn-large btn col l12 light-blue">Check Out</a>
-                        </div>
-                        <div class="row">
-                            <a href="#shoppingCart_BottomSheet" class="modal-trigger waves-effect waves-light-blue col l12 btn-flat light-blue-text center-align">Open Shopping Cart</a>
-                        </div>
-                    </div>
-                    <div class="col hide-on-med-and-down l12">
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons">filter_drama</i>First
-
-                                </div>
-                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!--/Filters-->
-                <div id="productsTable" class="col s12 m12 l9 sad-cards-container">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <style>
-
-
-                            </style>
-                            <a href="#!" class="sad-image-filter-contrast" data-prodID="0" onclick="showProductDetails()">
-                                <img src="../../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
-                            </a>
-                            <span class="card-title">Kipling Bag</span>
-                            <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
-                        </div>
-                        <div class="card-content">
-                            <p>Elegant and stylish, comes in four colors.</p>
-                            <div class="roboto-medium">
-                                PRICE:
-                                <span class="light-blue-text">P3,000.00</span>
-                                <s class="grey-text text-lighten-1">
-                                    P3,500.00
-                                </s>
-                            </div>
-                            <div class="product-chips">
-                                <a href="#!" class="chip waves-effect">Clothing</a>
-                                <a href="#!" class="chip waves-effect">Accessories</a>
-                                <a href="#!" class="chip waves-effect">...</a>
-                            </div>
-                        </div>
-                        <div class="card-action valign-wrapper">
-                            <span><i class="material-icons yellow-text">star</i>4.6/5</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </main>
-
-        <main id="productDetails" class="">
-            <div class="row">
-
-                <div class="row" style="margin:0 5px;">
-                    <div class="col m5 l4 hide-on-small-only">
-                        <button onclick="showProductsGrid()" class="btn-flat waves-effect waves-light"><i class="material-icons">arrow_back</i></button>
-                        <div class="row">
-                            <div class="col s12">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <div style="height:250px; overflow:hidden;">
-                                            <img class="sad-image-filter-contrast" src="../../../images/products/trolleybag_1.1.jpg" alt="">
-
-                                        </div>
-                                    </div>
-                                    <div class="card-content">
-                                        <span class="card-title">Trolley Bags<button class="btn-flat waves-effect right"><i class="material-icons">share</i></button></span>
-                                        <i class="material-icons yellow-text text-darken-3">star star star star star</i>
-                                        <div class="card-title green-text">P 1,899.00</div>
-                                    </div>
-                                    <div class="card-action">
-                                        <button class="btn-flat light-blue-text waves-effect">
-                                    <i class="material-icons left">edit</i>
-                                    Write a review
-                                </button>
-                                        <button class="btn sad-crimson waves-effect">
-                                    <i class="mdi mdi-cart-plus left"></i>
-                                    Add to cart
-                                </button>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="sad-cards-container col s12">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img class="materialboxed" src="../../../images/products/trolleybag.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img class="materialboxed" src="../../../images/products/trolleybag_1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img class="materialboxed" src="../../../images/products/trolleybag_1.1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img class="materialboxed" src="../../../images/products/trolleybag_1.2.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img class="materialboxed" src="../../../images/products/trolleybag_1.3.jpg" alt="">
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col m7 l8">
-                        <div class="parallax-container z-depth-1 hide-on-small-only">
-                            <div>
-                                <!--<img src="../../images/products/trolleybag.jpg" alt="">-->
-                                <div class="slider">
-                                    <ul class="slides">
-                                        <li>
-                                            <img src="../../../images/products/trolleybag.jpg">
-                                            <!-- random image -->
-                                        </li>
-                                        <li>
-                                            <img src="../../../images/products/trolleybag_1.1.jpg">
-                                        </li>
-                                        <li>
-                                            <img src="../../../images/products/trolleybag_1.2.jpg">
-                                        </li>
-                                        <li>
-                                            <img src="../../../images/products/trolleybag_1.3.jpg">
-                                        </li>
-                                        <li>
-                                            <img src="../../../images/products/trolleybag_1.jpg">
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <ul class="tabs tabs-transparent tabs-fixed-width white" style="position:absolute; bottom:-1px;">
-                                <li class="tab"><a class="waves-effect waves-block light-blue-text sad-roboto-medium" href="#details">Details</a></li>
-                                <li class="tab"><a class="waves-effect waves-block light-blue-text sad-roboto-medium" href="#reviews">Reviews</a></li>
-                            </ul>
-
-                        </div>
-
-                        <div class="card hide-on-large-only">
-                            <div class="card-image">
-                                <img src="../../../images/products/trolleybag.jpg" alt="">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">Trolley Bags<button class="btn-flat waves-effect right"><i class="material-icons">share</i></button></span>
-                                <i class="material-icons yellow-text text-darken-3">star star star star star</i>
-                                <div class="card-title green-text">P 1,899.00</div>
-                            </div>
-                            <div class="card-action">
-                                <button class="btn-flat light-blue-text waves-effect">
-                                    <i class="material-icons left">edit</i>
-                                    Write a review
-                                </button>
-                                <button class="btn sad-crimson waves-effect">
-                                    <i class="mdi mdi-cart-plus left"></i>
-                                    Add to cart
-                                </button>
-                            </div>
-
-                        </div>
-                        <div>
-                            <ul class="tabs tabs-transparent tabs-fixed-width white hide-on-large-only">
-                                <li class="tab"><a class="waves-effect waves-block light-blue-text sad-roboto-medium" href="#details">Details</a></li>
-                                <li class="tab"><a class="waves-effect waves-block light-blue-text sad-roboto-medium" href="#reviews">Reviews</a></li>
-                            </ul>
-                            <div class="row container" id="details">
-                                <div class="col l12">
-                                    <div class="card z-depth-0">
-                                        <div class="card-content">
-                                            <div class="row">
-                                                <span class="card-title" id=".prodName">Trolley Bag</span>
-                                                <div>
-                                                    <b>DETAILS:</b>
-                                                    <span>A bag with handle and wheels. Perfect for kids ages 8 and below. Choose from several designs.</span>
-                                                </div>
-                                                <div id="specs" class="row section">
-                                                    <table class="striped highlight bordered">
-                                                        <thead></thead>
-                                                        <tbody>
-                                                            <th>Hello</th>
-                                                            <td>Hello rin</td>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="row valign-wrapper">
-                                                    <div class="col s4 l5 divider"></div>
-                                                    <button onclick="$('#specs').slideToggle(300,null);" class="btn-flat center col s4 l2 waves-effect light-blue-text">SEE MORE</button>
-                                                    <div class="col s4 l5 divider"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row container" id="reviews">
-                                <div class="col l12">
-                                    <div class="card">
-                                        <div class="card-content">
-                                            <span class="card-title">Reviews</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </main>
-
-        <dialog class="modal bottom-sheet" id="cart">
-            <div class="navbar-fixed">
-                <nav class="grey darken-4">
-                    <div class="nav-wrapper">
-                        <ul class="left">
-                            <li>
-                                <span class="col s6 brand-logo"><i class="material-icons left">shopping_cart</i> Shopping Cart</span>
-
-                            </li>
-                        </ul>
-                        <ul class="right">
-                            <li>
-                                <a href="#" class="waves-effect waves-light dropdown-button" data-hover="false" data-belowOrigin="true" data-activates="cart-dropdown"
-                                    data-gutter="50" data-alignment="right"><i class="mdi mdi-dots-vertical"></i></a>
-                                <ul id='cart-dropdown' class='dropdown-content'>
-                                    <li><a class="black-text waves-effect" href="#!"><i class="material-icons">delete</i>Clear all</a></li>
-                                    <li><a class="black-text waves-effect" href="#!">two</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!--<span class="sad-roboto-medium col offset-s2 s2">TOTAL PRICE:</span>
-                    <span class="col s2 green-text">P 1,500.00</span>-->
-                    </div>
-                </nav>
-            </div>
-            <div class="row">
-                <div class="col s12 m3" style="position: fixed;">
-                    <p class="sad-roboto-medium">TOTAL PRICE: <span class="green-text">P 1,500.00</span></p>
-                    <div class="input-field section">
-                        <label for="" class="sad-roboto-medium">BUDGET</label>
-                        <input type="number" step="10" placeholder="Enter your budget...">
-                    </div>
-                    <p class="sad-roboto-medium">BALANCE LEFT: <span class="red-text">- P 200.00</span></p>
-                    <p class="grey-text text-darken-2">You seem to have exceeded your planned budget. Sure you're not overspending?</p>
-                </div>
-                <div id="empty-state" class="hide">
-                    <div class="center">
-                        <span class="grey-text">You have nothing on your cart yet.</span>
-                    </div>
-                </div>
-                <div id="cart-items" class="col offset-m3 s12 m9">
+        </div>
+        <div class="row">
+            <div class="row col hide-on-med-and-down l3">
+                <div class="col hide-on-med-and-down l12 row">
                     <div class="row">
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col m3 s6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="../../../images/products/01.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Kipling Bag</span>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        <a href="#!" class="waves-effect waves-light btn-large btn col l12 light-blue">Check Out</a>
+                    </div>
+                    <div class="row">
+                        <a href="#shoppingCart_BottomSheet" class="modal-trigger waves-effect waves-light-blue col l12 btn-flat light-blue-text center-align">Open Shopping Cart</a>
                     </div>
                 </div>
+                <div class="col hide-on-med-and-down l12">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </dialog>
-        <script src="../../../js/jquery.min.js"></script>
-        <script src="../../../js/materialize.js"></script>
-        <script src="../../../js/script.js"></script>
-        <script src="../../../js/actions.js"></script>
-        <script>
-            function showProductsGrid() {
-                $('#productDetails').fadeOut();
-                $('#productsGrid').fadeIn();
-                $('#backArrow').hide();
-            }
-            $('#productDetails').hide();
-            $('#backArrow').hide();
+            <div class="col s12 m12 l9 sad-cards-container">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <a href="#details" data-prodID="0" class="modal-trigger">
+                                <img src="../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
+                            </a>
+                        <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Kipling Bag</span>
+                        <p>Elegant and stylish, comes in four colors.</p>
+                        <div class="roboto-medium">
+                            PRICE:
+                            <span class="light-blue-text">P3,000.00</span>
+                            <s class="grey-text text-lighten-1">
+                                P3,500.00
+                            </s>
+                        </div>
+                        <div class="product-chips">
+                            <a href="#!" class="chip waves-effect">Clothing</a>
+                            <a href="#!" class="chip waves-effect">Accessories</a>
+                            <a href="#!" class="chip waves-effect">...</a>
+                        </div>
+                    </div>
+                    <div class="card-action valign-wrapper">
+                        <span><i class="material-icons yellow-text">star</i>4.6/5</span>
+                    </div>
+                </div>
 
-            function showProductDetails() {
-                $('#productDetails').fadeIn();
-                // $('#productDetails').fadeIn(300, null);
-                $('#backArrow').show();
-                $('#productsGrid').fadeOut();
-            }
-            $(document).ready(function () {
-                console.log('AJAX started');
-                //fetch products via AJAX
-                $.ajax({
-                    url: 'products.php',
-                    data: '',
-                    dataType: 'json',
-                    success: function (data) {
-                        var dataJSON = JSON.parse(JSON.stringify(data));
-                        var productsTable = $('#productsTable');
-                        console.log(dataJSON);
-                    }
-                });
-            });
-            console.log('AJAX ended');
+            </div>
+        </div>
+    </main>
 
-        </script>
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Our Identity</h5>
+                    <p class="grey-text text-lighten-4">From cellphone accessories to your pet's dinner, we've got 'em. Through our long list of categories,
+                        we give you only the best and affordable items. We accept cash on delivery as a mode of payment,
+                        and we deliver your items.We also accept <a href="#!" class="light-blue-text text-lighten-3">resellers</a>,
+                        and they receive P20.00 discount per item.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright teal darken-2">
+            <div class="container">
+                © 2014 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
 
-    </body>
+    <!-- Modal Structure -->
+    <dialog id="details" class="modal sad-product-details">
+        <div class="row sad-strip">
+            <div class="col s12 m12 l8 center-align sad-product-image">
+                <div class="sad-product-image-bg">
+                    <img src="../../images/products/01.jpg" class="" alt="">
+                </div>
+            </div>
+            <div class="col s12 m12 l4 text-flow sad-product-details-section card">
+                <div class="section">
+                    <h4>Kipling Bag</h4>
+                    <p>Elegant and stylish, comes in four colors. Elegant and stylish, comes in four colors. Elegant and stylish,
+                        comes in four colors. Elegant and stylish, comes in four colors. Elegant and stylish, comes in four
+                        colors.
+                    </p>
+                    <span class="roboto-medium">PRICE:<span class="light-blue-text">P1,599.00</span>
+                    <s class="grey-text">P3,999.00</s>
+                    </span>
+                    <div class="sad-product-chip waves-effects">
+                        <a href="#!" class="chip waves-effect">Clothing</a>
+                        <a href="#!" class="chip waves-effect">Accessories</a>
+                        <a href="#!" class="chip waves-effect">Bags and Shoes</a>
+                    </div>
+                    <span>
+                            <i class="material-icons yellow-text">star</i>
+                            <span class="text-flow">4.5 out of 5</span>
+                    </span>
+                </div>
+                <div class="row">
+                        <div>
+                                <ul id="tabs-swipe-demo" data-swipeable="true" class="tabs">
+                                        <li class="tab"><a href="#test-swipe-1">DETAILS</a></li>
+                                        <li class="tab"><a class="active" href="#test-swipe-2">REVIEWS</a></li>
+                                    
+                                      </ul>
+                                      <div id="test-swipe-1" class="section"><img src="../../images/test_dp.jpg"></div>
+                                      <div id="test-swipe-2">    
+                                          <div class="divider"></div>
+                                      <div class="section">
+                                          <div class="card section">
+                                              <div class="card-content center-align">
+                                                  <img src="../../images/test_dp.jpg" class="responsive-img circle sad-profile-dp" alt="">
+                                                  <h5>Yuna K.</h5>
+                                                  <form action="" class="container">
+                                                      <p class="range-field">
+                                                          <input placeholder="Rate this item" id="rating" type="range" min="1" max="5">
+                                                      </p>
+                                                      <label for="rating">Rate this item</label>
+                                                  </form>
+                                                  <div class="input-field">
+                                                      <textarea name="item-review" class="materialize-textarea" data-length="120" id="" cols="30" rows="10"></textarea>
+                                                      <label for="item-review">Give this item a review...</label>
+                                                  </div>
+                                                  <button class="waves-effect waves-light btn blue">Submit review</button>
+                                              </div>
+                                          </div>
+                                          <section class="sad-comments-section section">
+                                              <div class="sad-comment container">
+                                                  <div class="row halign-wrapper">
+                                                      <a href="#!" class="chip waves-effect"><img src="../../images/test_dp.jpg" class="responsive_img circle" alt="">Yuna K.</a>
+                                                      <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
+                                                      <ul id='dropdown1' style="z-index: 1000;" class='dropdown-content'>
+                                                          <li><a href="#!">one</a></li>
+                                                          <li><a href="#!">two</a></li>
+                                                          <li class="divider"></li>
+                                                          <li><a href="#!">three</a></li>
+                                                          <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                                                          <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                                                      </ul>
+                                                  </div>
+                                                  <span><i class="material-icons yellow-text">star</i> 4 out of 5</span>
+                                                  <div class="sad-comment-content">
+                                                      <p>
+                                                          This product is really good. I bought the red one, and I really liked it. It has so many compartments and it is really a
+                                                          brilliant bag. Now with the recent discount, I am buying four more.
+                                                      </p>
+                                                  </div>
+                                                  <div class="sad-comment-footer">
+                                                      <form action="#">
+                                                          <p class="like-dislike">
+                                                              <input type="radio" name="likes" id="like1">
+                                                              <label for="like1"><i class="material-icons">thumbs_up</i></label>
+                                                          </p>
+                                                      </form>
+                                                  </div>
+                                              </div>
+                                          </section>
+                                      </div>
+                                  </div>
+                              </div>
+                          </dialog></div>
+                                      
+                             
+                                            
+                            
+                        </div>
+
+            
+
+    <ul id="sad-comment-options" class="dropdown-content">
+        <li><a href="#!">Report</a></li>
+    </ul>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/materialize.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="../../js/actions.js"></script>
+</body>
 
 </html>
