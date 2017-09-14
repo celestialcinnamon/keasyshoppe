@@ -27,5 +27,6 @@ Version numbers refer to presentations/submission.
 - Notifications
 
 **1.0** (*to be released October 3, 2017*)
+
 **Milestone Update**
-- First stable release
+- Stable release
