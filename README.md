@@ -17,3 +17,15 @@ Version numbers refer to presentations/submission.
 
 **0.2** (*to be released September 19, 2017*)
 - Shopping cart 
+- Transaction histories
+
+**0.3** (*to be released September 26, 2017*)
+- Resellers update
+- Administrator dashboard
+- Homepage updates
+- User profiles
+- Notifications
+
+**1.0** (*to be released October 3, 2017*)
+**Milestone Update**
+- First stable release
