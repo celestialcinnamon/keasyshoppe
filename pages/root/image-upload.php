@@ -1,5 +1,5 @@
 <?php 
-$target_dir = './uploads';
+$target_dir = __DIR__.'/uploads/';
 $target_file = $target_dir . basename($_FILES["uploadMainImage"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -22,7 +22,14 @@ if (file_exists($target_file)) {
 }
 
 if (! ($uploadOk == 0)) {
-    if (move_uploaded_file($_FILES["uploadMainImage"]["tmp_name"], $target_file)) {
+    echo $target_dir;
+    /* TODO:
+     * Change file permissions before writing|copying the uploaded files to the 
+     * __DIR__./uploads/ folder
+     */
+    chmod($target_dir, 0666);
+    $k = move_uploaded_file($_FILES["uploadMainImage"]["tmp_name"], $target_file);
+    if ($k) {
         echo "The file <code>" . basename($_FILES["uploadMainImage"]["name"]) . "</code> has been uploaded.";
     }
     else {

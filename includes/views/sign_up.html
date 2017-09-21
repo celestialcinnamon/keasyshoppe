@@ -4,10 +4,11 @@
   <head>
     <meta charset="UTF-8">
     <title>KeasyShoppe</title>
-    <link rel="icon" type="image/png" href="images/k_logo_3.png">
-    <link rel="stylesheet" href="css/materialdesignicons.css">
-    <link rel="stylesheet" href="css/style_1.css">
-
+    <link rel="icon" type="image/png" href="../../images/k_logo_3.png">
+    <link rel="stylesheet" href="../../css/materialdesignicons.css">
+    <link rel="stylesheet" href="../../css/materialize.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style_1.css">
   </head>
 
   <body>
@@ -17,7 +18,7 @@
     <!-- Pen Title-->
     <div class="pen-title">
       <!-- <h1>KeasyShoppe</h1> -->
-      <a href="#" class="brand-logo"><img style="width:35%" class="responsive-img" src="images/Logo_1.png"></a>
+      <a href="#" class="brand-logo"><img style="width:35%" class="responsive-img" src="../../images/keasy_logo.png"></a>
     </div>
 
     <div class="container">
@@ -26,19 +27,25 @@
         <h1 class="title">Login</h1>
         <form>
           <div class="input-container">
-            <input type="text" id="#{label}" required="required" />
+            <input type="text" class="browser-default" id="#{label}" required="required" />
             <label for="#{label}">Username</label>
             <div class="bar"></div>
           </div>
           <div class="input-container">
-            <input type="password" id="#{label}" required="required" />
+            <input type="password" class="browser-default" id="#{label}" required="required" />
             <label for="#{label}">Password</label>
             <div class="bar"></div>
           </div>
-          <div class="button-container">
-            <button><span>Go</span></button>
+          <div class="button-containers row">
+            <div class="col s6 offset-s3">
+              <button class=" waves-effect waves-block btn-ghost btn-ghost-large">
+                <span>Go</span>
+              </button>
+            </div>
           </div>
-          <div class="footer"><a href="#">Forgot your password?</a></div>
+          <div class="footer">
+            <a href="#">Forgot your password?</a>
+          </div>
         </form>
       </div>
       <div class="card alt">
@@ -52,31 +59,37 @@
         </h1>
         <form>
           <div class="input-container">
-            <input type="#{type}" id="#{label}" required="required" />
+            <input type="#{type}" class="browser-default" id="#{label}" required="required" />
             <label for="#{label}">Username</label>
             <div class="bar"></div>
           </div>
           <div class="input-container">
-            <input type="password" id="#{label}" required="required" />
+            <input type="password" class="browser-default" id="#{label}" required="required" />
             <label for="">Password</label>
             <div class="bar"></div>
           </div>
           <div class="input-container">
-            <input type="password" id="#{label}" required="required" />
+            <input type="password" class="browser-default" id="#{label}" required="required" />
             <label for="#{label}">Repeat Password</label>
             <div class="bar"></div>
           </div>
           <div class="button-container">
-            <button><span>Next</span></button>
+            <button>
+              <span>Next</span>
+            </button>
           </div>
         </form>
       </div>
     </div>
 
-    <script src='js/jquery.min.js'></script>
+    <script src='../../js/jquery.min.js'></script>
+    <script src="../../js/materialize.min.js"></script>
+    <script src="../../js/index.js"></script>
 
-    <script src="js/index.js"></script>
+    <script>
 
+
+    </script>
   </body>
 
 </html>

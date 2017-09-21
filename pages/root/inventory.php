@@ -140,7 +140,7 @@
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<tr data-prodID='{$row["prodID"]}'>" .
                                         "<td><span class='sad-row-content_name'>{$row['prodName']}</span><input value='{$row["prodName"]}' class='hide sad-row-content_name-editor' type='text'></td>" .
-                                        "<td><span class='sad-row-content_qty'>{$row['prodQty']}</span><input type='text' value='{$row["prodQty"]}' class='sad-row-content_qty-editor hide'></td>" .
+                                        "<td><!--<span class='sad-row-content_qty'>{row['prodQty']}</span><input type='text' value='{row['prodQty']}' class='sad-row-content_qty-editor hide'>--></td>" .
                                         "<td><span class='sad-row-content_price'>{$row['prodPrice']}</span><input type='text' value='{$row['prodPrice']}' class='sad-row-content_price-editor hide'></td>" .
                                         "<td style='padding: 0 !important;'><button onclick='showRowEditors({$row["prodID"]});var btnSave = this;' class='right btn-flat waves-effect sad-btn_showEditors'><i class='material-icons'>edit</i></button>" .
                                         "<button onclick='showRowEditors({$row["prodID"]});' class='right hide btn-flat waves-effect sad-btn_showEditors'><i class='material-icons'>close</i></button>" .
@@ -209,8 +209,8 @@
                 
 
                 $.ajax({
-                    url: '../../resources/update.php',
-                    data: 'table=tblTest'+'&id='+$('tr#currentRow').attr('data-prodID')+'&prodName='+nameEdit+'&prodQty='+qtyEdit+
+                    url: './update.php',
+                    data: 'table=tblTest'+'&id='+$('tr#currentRow').attr('data-prodID')+'&prodName='+nameEdit+
                           '&prodPrice='+priceEdit+'&refresh=true',
                           dataType: 'json',
                           success: function(data){

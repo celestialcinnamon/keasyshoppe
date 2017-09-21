@@ -71,8 +71,12 @@
         </div>
         <div class="nav-content">
           <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="#accounts" class="waves-effect">Accounts</a></li>
-            <li class="tab"><a href="#items" class="waves-effect">Items</a></li>
+            <li class="tab">
+              <a href="#accounts" class="waves-effect">Accounts</a>
+            </li>
+            <li class="tab">
+              <a href="#items" class="waves-effect">Items</a>
+            </li>
 
           </ul>
         </div>
@@ -94,21 +98,32 @@
           <a href="#!user"><img class="circle" src="../../images/test_dp.jpg"></a>
 
           <!-- User Full name -->
-          <a href="#!name"><span class="white-text name">Caseymars Carriedo</span></a>
+          <a href="#!name">
+            <span class="white-text name">Caseymars Carriedo</span>
+          </a>
 
           <!-- User type -->
-          <a href="#!email"><span class="white-text email">Administrator</span></a>
+          <a href="#!email">
+            <span class="white-text email">Administrator</span>
+          </a>
         </div>
       </li>
 
       <!--Link to Dashboard-->
-      <li><a href="dashboard.html" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a></li>
+      <li>
+        <a href="dashboard.html" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a>
+      </li>
 
       <!-- Link to Messages -->
-      <li><a href="messages.html" class="waves-effect"><span id="message-count" class="new badge sad-crimson">3</span><i class="material-icons">messages</i>Messages</a></li>
+      <li>
+        <a href="messages.html" class="waves-effect">
+          <span id="message-count" class="new badge sad-crimson">3</span><i class="material-icons">messages</i>Messages</a>
+      </li>
 
       <!-- Link to Products -->
-      <li><a href="products.html" class="waves-effect"><i class="material-icons">shop</i>Products</a></li>
+      <li>
+        <a href="products.html" class="waves-effect"><i class="material-icons">shop</i>Products</a>
+      </li>
 
       <!-- Dropdown to Customers -->
       <li class="no-padding">
@@ -117,10 +132,20 @@
             <a class="collapsible-header waves-effect">Customers<i class="material-icons">arrow_drop_down</i></a>
             <div class="collapsible-body">
               <ul>
-                <li><a href="transactions.html" class="waves-effect">Transactions</a></li>
-                <li><a href="meetups.html" class="waves-effect"><span id="meetup-count" class="sad-crimson new badge" data-badge-caption="meetups today">4</span>Meetups</a></li>
-                <li><a href="orders.html" class="waves-effect"><span id="meetup-count" class="sad-crimson new badge" data-badge-caption="new orders">4</span>Orders</a></li>
-                <li><a href="complaints.html" class="waves-effect">Complaints</a></li>
+                <li>
+                  <a href="transactions.html" class="waves-effect">Transactions</a>
+                </li>
+                <li>
+                  <a href="meetups.html" class="waves-effect">
+                    <span id="meetup-count" class="sad-crimson new badge" data-badge-caption="meetups today">4</span>Meetups</a>
+                </li>
+                <li>
+                  <a href="orders.html" class="waves-effect">
+                    <span id="meetup-count" class="sad-crimson new badge" data-badge-caption="new orders">4</span>Orders</a>
+                </li>
+                <li>
+                  <a href="complaints.html" class="waves-effect">Complaints</a>
+                </li>
               </ul>
             </div>
           </li>
@@ -129,9 +154,15 @@
 
       <div class="divider"></div>
       </li>
-      <li><a class="subheader">FOR YOUR CUSTOMERS</a></li>
-      <li><a class="waves-effect" href="../../users/products.html"><i class="material-icons">store</i>See the store</a></li>
-      <li><a class="waves-effect" href="settings.html"><i class="material-icons">settings</i>Customize the site</a></li>
+      <li>
+        <a class="subheader">FOR YOUR CUSTOMERS</a>
+      </li>
+      <li>
+        <a class="waves-effect" href="../../users/products.html"><i class="material-icons">store</i>See the store</a>
+      </li>
+      <li>
+        <a class="waves-effect" href="settings.html"><i class="material-icons">settings</i>Customize the site</a>
+      </li>
 
     </ul>
     <main style="margin-top:65px;">
@@ -278,17 +309,17 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -301,17 +332,17 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -324,17 +355,17 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -347,111 +378,17 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
-                    <p><b>Age :</b> 26 yrs old</p>
-                    <p><b>Gender :</b> Female</p>
-                    <p><b>Address :</b> Westnyak N.Y</p>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12 m12 l3">
-                <div class="card hoverable">
-                  <div class="card-image resizer-parent">
-                    <div class="resizer">
-                      <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
-                    </div>
-                  </div>
-                  <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
-                  </div>
-                  <div class="card-reveal">
-
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
-                    <p><b>Age :</b> 26 yrs old</p>
-                    <p><b>Gender :</b> Female</p>
-                    <p><b>Address :</b> Westnyak N.Y</p>
-
-                  </div>
-                </div>
-              </div>
-              <div class="col s12 m12 l3">
-                <div class="card hoverable">
-                  <div class="card-image resizer-parent">
-                    <div class="resizer">
-                      <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
-                    </div>
-                  </div>
-                  <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
-                  </div>
-                  <div class="card-reveal">
-
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
-                    <p><b>Age :</b> 26 yrs old</p>
-                    <p><b>Gender :</b> Female</p>
-                    <p><b>Address :</b> Westnyak N.Y</p>
-
-                  </div>
-                </div>
-              </div>
-              <div class="col s12 m12 l3">
-                <div class="card hoverable">
-                  <div class="card-image resizer-parent">
-                    <div class="resizer">
-                      <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
-                    </div>
-                  </div>
-                  <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
-                  </div>
-                  <div class="card-reveal">
-
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
-                    <p><b>Age :</b> 26 yrs old</p>
-                    <p><b>Gender :</b> Female</p>
-                    <p><b>Address :</b> Westnyak N.Y</p>
-
-                  </div>
-                </div>
-              </div>
-              <div class="col s12 m12 l3">
-                <div class="card hoverable">
-                  <div class="card-image resizer-parent">
-                    <div class="resizer">
-                      <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
-                    </div>
-                  </div>
-                  <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
-                  </div>
-                  <div class="card-reveal">
-
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -466,17 +403,17 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -489,17 +426,17 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -512,17 +449,17 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -535,17 +472,17 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -560,17 +497,17 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -583,17 +520,111 @@
                   <div class="card-image resizer-parent">
                     <div class="resizer">
                       <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
-                    <img src="../../images/test_dp.jpg" alt="Account Profile">
-                  </a>
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
                     </div>
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
                   </div>
                   <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna
-                    Nocturnal
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
+                    <p><b>Age :</b> 26 yrs old</p>
+                    <p><b>Gender :</b> Female</p>
+                    <p><b>Address :</b> Westnyak N.Y</p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m12 l3">
+                <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">
+                      <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                  </div>
+                  <div class="card-reveal">
+
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
+                    <p><b>Age :</b> 26 yrs old</p>
+                    <p><b>Gender :</b> Female</p>
+                    <p><b>Address :</b> Westnyak N.Y</p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m12 l3">
+                <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">
+                      <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                  </div>
+                  <div class="card-reveal">
+
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
+                    <p><b>Age :</b> 26 yrs old</p>
+                    <p><b>Gender :</b> Female</p>
+                    <p><b>Address :</b> Westnyak N.Y</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l3">
+                <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">
+                      <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                  </div>
+                  <div class="card-reveal">
+
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
+                    <p><b>Age :</b> 26 yrs old</p>
+                    <p><b>Gender :</b> Female</p>
+                    <p><b>Address :</b> Westnyak N.Y</p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m12 l3">
+                <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">
+                      <a href="#YunaNc" data-accno="1" id="AccProf" class="modal-trigger">
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                        data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+                  </div>
+                  <div class="card-reveal">
+
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span> Yuna Nocturnal
                     <p><b>Age :</b> 26 yrs old</p>
                     <p><b>Gender :</b> Female</p>
                     <p><b>Address :</b> Westnyak N.Y</p>
@@ -607,16 +638,36 @@
             <div class="row">
               <div class="center">
                 <ul class="pagination">
-                  <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                  <li class="active"><a href="#!">1</a></li>
-                  <li class="waves-effect"><a href="#!">2</a></li>
-                  <li class="waves-effect"><a href="#!">3</a></li>
-                  <li class="waves-effect"><a href="#!">4</a></li>
-                  <li class="waves-effect"><a href="#!">5</a></li>
-                  <li class="waves-effect"><a href="#!">6</a></li>
-                  <li class="waves-effect"><a href="#!">7</a></li>
-                  <li class="waves-effect"><a href="#!">8</a></li>
-                  <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                  <li class="disabled">
+                    <a href="#!"><i class="material-icons">chevron_left</i></a>
+                  </li>
+                  <li class="active">
+                    <a href="#!">1</a>
+                  </li>
+                  <li class="waves-effect">
+                    <a href="#!">2</a>
+                  </li>
+                  <li class="waves-effect">
+                    <a href="#!">3</a>
+                  </li>
+                  <li class="waves-effect">
+                    <a href="#!">4</a>
+                  </li>
+                  <li class="waves-effect">
+                    <a href="#!">5</a>
+                  </li>
+                  <li class="waves-effect">
+                    <a href="#!">6</a>
+                  </li>
+                  <li class="waves-effect">
+                    <a href="#!">7</a>
+                  </li>
+                  <li class="waves-effect">
+                    <a href="#!">8</a>
+                  </li>
+                  <li class="waves-effect">
+                    <a href="#!"><i class="material-icons">chevron_right</i></a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -641,7 +692,7 @@
                 <div class="collapsible-body">
                   <span>
 
-               </span>
+                  </span>
                 </div>
               </li>
               <li>
@@ -864,16 +915,36 @@
             </table>
             <div class="col s12 center">
               <ul class="pagination">
-                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                <li class="active"><a href="#!">1</a></li>
-                <li class="waves-effect"><a href="#!">2</a></li>
-                <li class="waves-effect"><a href="#!">3</a></li>
-                <li class="waves-effect"><a href="#!">4</a></li>
-                <li class="waves-effect"><a href="#!">5</a></li>
-                <li class="waves-effect"><a href="#!">6</a></li>
-                <li class="waves-effect"><a href="#!">7</a></li>
-                <li class="waves-effect"><a href="#!">8</a></li>
-                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                <li class="disabled">
+                  <a href="#!"><i class="material-icons">chevron_left</i></a>
+                </li>
+                <li class="active">
+                  <a href="#!">1</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">2</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">3</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">4</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">5</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">6</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">7</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">8</a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!"><i class="material-icons">chevron_right</i></a>
+                </li>
               </ul>
             </div>
           </div>
@@ -882,34 +953,7 @@
 
     </main>
 
-    <footer class="page-footer grey darken-4">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Our Identity</h5>
-            <p class="grey-text text-lighten-4">From cellphone accessories to your pet's dinner, we've got 'em. Through our long list of categories, we give
-              you only the best and affordable items. We accept cash on delivery as a mode of payment, and we deliver your
-              items.We also accept <a href="#!" class="light-blue-text text-lighten-3">resellers</a>, and they receive P20.00
-              discount per item.</p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
-          © 2014 Copyright Text
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
-      </div>
-    </footer>
+    <?php include '../../includes/views/footer.html' ?>
 
     <script src="../../js/jquery.min.js"></script>
     <script src="../../js/materialize.js"></script>

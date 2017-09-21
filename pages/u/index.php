@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta charset="utf-8">
         <title>KeasyShoppe &middot; Online Shopping Center</title>
-        <link rel="stylesheet" href="css/materialdesignicons.css">
-        <link rel="stylesheet" href="css/materialize.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../../css/materialdesignicons.css">
+        <link rel="stylesheet" href="../../css/materialize.css">
+        <link rel="stylesheet" href="../../css/style.css">
         <style>
             #top-level-group {
                 width: 600%;
@@ -77,14 +77,14 @@
                     <a href="#" class="brand-logo hide-on-med-and-down">
                         <!--Large devices-->
                         <div class="center">
-                            <img style="width:35%; display:block;" src="images/keasy_logo_white.png">
+                            <img style="width:35%; display:block;" src="../../images/keasy_logo_white.png">
 
                         </div>
                     </a>
                     <a href="#" class="brand-logo hide-on-large-only hide-on-small-only">
                         <!--Medium devices-->
                         <div class="center">
-                            <img class="img-responsive" width="45%" src="images/keasy_logo_white.png">
+                            <img class="img-responsive" width="45%" src="../../images/keasy_logo_white.png">
 
                         </div>
                     </a>
@@ -92,7 +92,7 @@
                     <a href="#" class="brand-logo hide-on-med-and-up">
                         <!--Small devices-->
                         <div class="center">
-                            <img class="img-responsive" width="60%" src="images/keasy_logo_white.png">
+                            <img class="img-responsive" width="60%" src="../../images/keasy_logo_white.png">
 
                         </div>
                     </a>
@@ -100,33 +100,60 @@
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
                     <ul class="right hide-on-med-and-down z-depth-0">
-                        <li class="active"><a href="#" class="waves-effect waves-light">Home</a></li>
-                        <li class="dropdown"><a href="#" class="waves-effect waves-light"><i class="material-icons bt right">arrow_drop_down</i>Categories</a>
+                        <li class="active">
+                            <a href="#" class="waves-effect waves-light">Home</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#!" class="waves-effect waves-light"><i class="material-icons bt right">arrow_drop_down</i>Categories</a>
                             <div id="top-level-group" class="clearfix z-depth-1">
 
                                 <ul>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">child_friendly</i>Baby & Toddler</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">devices</i>Devices</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">spa</i>Fashion</a></li>
+                                    <li>
+                                        <a href="#!" class="materialize-red-text"><i class="material-icons left">child_friendly</i>Baby & Toddler</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="materialize-red-text"><i class="material-icons left">devices</i>Devices</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="materialize-red-text"><i class="material-icons left">spa</i>Fashion</a>
+                                    </li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">local_dining</i>Food & Drinks</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">fitness_center</i>Health & Beauty</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">hotel</i>Home & Living</a></li>
+                                    <li>
+                                        <a href="#!" class="materialize-red-text"><i class="material-icons left">local_dining</i>Food & Drinks</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="materialize-red-text"><i class="material-icons left">fitness_center</i>Health & Beauty</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="materialize-red-text"><i class="material-icons left">hotel</i>Home & Living</a>
+                                    </li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">pets</i>Pets</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">beach_access</i>Sports & Outdoors</a></li>
-                                    <li><a href="#!" class="materialize-red-text"><i class="material-icons left">toys</i>Toys & Games</a></li>
+                                    <li>
+                                        <a href="#!" class="materialize-red-text"><i class="material-icons left">pets</i>Pets</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="materialize-red-text"><i class="material-icons left">beach_access</i>Sports & Outdoors</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="materialize-red-text"><i class="material-icons left">toys</i>Toys & Games</a>
+                                    </li>
                                 </ul>
 
                             </div>
                         </li>
-                        <li><a href="pages/users/products.html" class="waves-effect waves-light">Shop Now</a></li>
+                        <li>
+                            <a href="./shop-now/" class="waves-effect waves-light">Shop Now</a>
+                        </li>
 
-                        <li><a href="#signupModal" class="modal-trigger waves-effect waves-light">Log in</a></li>
+                        <li>
+                            <a href="#signupModal" class="modal-trigger waves-effect waves-light">Log in</a>
+                        </li>
                         <a class="btn btn-large waves-effect waves-light light-blue" style="background-color: crimson !important;" id="modal-trigger"
-                            href="#modal1"><i class="material-icons">shopping_cart</i><div class="chip">4</div></a>
+                            href="#modal1"><i class="material-icons">shopping_cart</i>
+                            <div class="chip">4</div>
+                        </a>
                     </ul>
                 </div>
             </nav>
@@ -139,14 +166,14 @@
 
             <div class="parallax-container sad-image-filter-contrast" style="padding-top:65px;">
                 <div class="parallax">
-                    <img src="images/Shopping.jpg" class="" alt="">
+                    <img src="../../images/Shopping.jpg" class="" alt="">
                 </div>
                 <div class="section white-text">
                     <div class="row container center">
-                        <img src="images/keasy_logo_white.png" class="responsive-img" alt="">
+                        <img src="../../images/keasy_logo_white.png" class="responsive-img" alt="">
                         <p class="flow-text">Just the best products at the most affordable price. <em>Para ka lang namalengke sa mall.</em> </p>
                         <a href="#signupModal" class="waves-effect waves-light btn-ghost-large btn-ghost ghost-invert modal-trigger">Sign Up for an account</a>
-                        <a href="pages/users/products.html" class="waves-effect waves-light btn-ghost-large btn-ghost ghost-invert"><strong>See our store</strong></a>
+                        <a href="../../pages/u/products.html" class="waves-effect waves-light btn-ghost-large btn-ghost ghost-invert"><strong>See our store</strong></a>
                     </div>
                 </div>
             </div>
@@ -188,7 +215,8 @@
                     <div class="card hoverable">
                         <div class="card-image">
                             <a href="#details" data-prodID="0" class="modal-trigger">
-                                <img src="images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
+                                <img src="../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                                    data-position="top" data-delay="50">
                             </a>
                             <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
 
@@ -214,7 +242,8 @@
                     <div class="card hoverable">
                         <div class="card-image">
                             <a href="#details" data-prodID="0" class="modal-trigger">
-                                <img src="images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
+                                <img src="../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                                    data-position="top" data-delay="50">
                             </a>
                             <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
 
@@ -239,7 +268,8 @@
                     <div class="card hoverable">
                         <div class="card-image">
                             <a href="#details" data-prodID="0" class="modal-trigger">
-                                <img src="images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
+                                <img src="../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                                    data-position="top" data-delay="50">
                             </a>
                             <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
 
@@ -264,7 +294,8 @@
                     <div class="card hoverable">
                         <div class="card-image">
                             <a href="#details" data-prodID="0" class="modal-trigger">
-                                <img src="images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
+                                <img src="../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                                    data-position="top" data-delay="50">
                             </a>
                             <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
 
@@ -296,7 +327,7 @@
                     <div class="card horizontal">
 
                         <div class="card-image">
-                            <img src="images/clothes.jpg">
+                            <img src="../../images/clothes.jpg">
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
@@ -352,7 +383,7 @@
 
                         </div>
                         <div class="card-image">
-                            <img src="images/clothes.jpg">
+                            <img src="../../images/clothes.jpg">
                         </div>
                     </div>
                 </div>
@@ -365,7 +396,8 @@
                     <div class="card hoverable">
                         <div class="card-image">
                             <a href="#details" data-prodID="0" class="modal-trigger">
-                                <img src="images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
+                                <img src="../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                                    data-position="top" data-delay="50">
                             </a>
                             <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
 
@@ -391,7 +423,8 @@
                     <div class="card hoverable">
                         <div class="card-image">
                             <a href="#details" data-prodID="0" class="modal-trigger">
-                                <img src="images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
+                                <img src="../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                                    data-position="top" data-delay="50">
                             </a>
                             <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
 
@@ -441,7 +474,8 @@
                     <div class="card hoverable">
                         <div class="card-image">
                             <a href="#details" data-prodID="0" class="modal-trigger">
-                                <img src="images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
+                                <img src="../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                                    data-position="top" data-delay="50">
                             </a>
                             <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
 
@@ -467,7 +501,8 @@
                     <div class="card hoverable">
                         <div class="card-image">
                             <a href="#details" data-prodID="0" class="modal-trigger">
-                                <img src="images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">
+                                <img src="../../images/products/01.jpg" class="responsive-img tooltipped" data-tooltip="Click or tap on the image for details"
+                                    data-position="top" data-delay="50">
                             </a>
                             <a class="btn-floating halfway-fab waves-effect waves-light sad-crimson"><i class="material-icons">add</i></a>
 
@@ -492,34 +527,7 @@
             </div>
 
         </main>
-        <footer class="page-footer grey darken-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Our Identity</h5>
-                        <p class="grey-text text-lighten-4">From cellphone accessories to your pet's dinner, we've got 'em. Through our long list of categories,
-                            we give you only the best and affordable items. We accept cash on delivery as a mode of payment,
-                            and we deliver your items.We also accept <a href="#!" class="light-blue-text text-lighten-3">resellers</a>,
-                            and they receive P20.00 discount per item.</p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Links</h5>
-                        <ul>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    © 2014 Copyright Text
-                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-                </div>
-            </div>
-        </footer>
+        <?php include '../../includes/views/footer.html' ?>
 
         <!--Bottom Sheet for Shopping Cart-->
         <dialog class="modal bottom-sheet" id="modal1">
@@ -537,8 +545,12 @@
                                 <a href="#" class="waves-effect waves-light dropdown-button" data-hover="false" data-belowOrigin="true" data-activates="cart-dropdown"
                                     data-gutter="50" data-alignment="right"><i class="mdi mdi-dots-vertical"></i></a>
                                 <ul id='cart-dropdown' class='dropdown-content'>
-                                    <li><a class="black-text waves-effect" href="#!"><i class="material-icons">delete</i>Clear all</a></li>
-                                    <li><a class="black-text waves-effect" href="#!">two</a></li>
+                                    <li>
+                                        <a class="black-text waves-effect" href="#!"><i class="material-icons">delete</i>Clear all</a>
+                                    </li>
+                                    <li>
+                                        <a class="black-text waves-effect" href="#!">two</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -547,12 +559,16 @@
             </div>
             <div class="row">
                 <div class="col s12 m3" style="position: fixed;">
-                    <p class="sad-roboto-medium">TOTAL PRICE: <span class="green-text">P 1,500.00</span></p>
+                    <p class="sad-roboto-medium">TOTAL PRICE:
+                        <span class="green-text">P 1,500.00</span>
+                    </p>
                     <div class="input-field section">
                         <label for="" class="sad-roboto-medium">BUDGET</label>
                         <input type="number" step="10" placeholder="Enter your budget...">
                     </div>
-                    <p class="sad-roboto-medium">BALANCE LEFT: <span class="red-text">- P 200.00</span></p>
+                    <p class="sad-roboto-medium">BALANCE LEFT:
+                        <span class="red-text">- P 200.00</span>
+                    </p>
                     <p class="grey-text text-darken-2">You seem to have exceeded your planned budget. Sure you're not overspending?</p>
                 </div>
                 <div id="empty-state" class="col offset-m3 s12 m9" style="margin-bottom: 200%; padding-top: 65px;">
@@ -565,7 +581,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -576,7 +592,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -587,7 +603,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -598,7 +614,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -609,7 +625,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -620,7 +636,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -631,7 +647,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -642,7 +658,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -653,7 +669,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -664,7 +680,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -675,7 +691,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -686,7 +702,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -697,7 +713,7 @@
                         <div class="col m3 s6">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="images/products/01.jpg" alt="">
+                                    <img src="../../images/products/01.jpg" alt="">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">Kipling Bag</span>
@@ -716,33 +732,28 @@
         <dialog id="signupModal" class="modal modal-fixed-footer">
             <div class="modal-content">
                 <h2>Sign Up for an Account</h2>
-                <p>Connect to your existing social media accounts and get the latest items. We won't post without your permission.</p>
+                <p>Connect to your existing social media accounts and get the latest items. We won't post without your permission.
+                </p>
                 <div class="row">
-                    <button class="col m12 waves-effect waves-light btn-large blue darken-2 sad-connect" onclick="FB.login(function(response) {
-  if (response.status === 'connected') {
-    // Logged into your app and Facebook.
-  } else {
-    // The person is not logged into this app or we are unable to tell.
-  }
-});"><i class="glyphicon glyphicon-retweet"></i> Connect to Facebook</button>
+                    <button class="col m12 waves-effect waves-light btn-large blue darken-2 sad-connect" onclick="FB.login(function(response) {  if (response.status == 'connected') {  } else { alert('Failed.') }});"><i class="glyphicon glyphicon-retweet"></i> Connect to Facebook</button>
                     <a href="#!" class="waves-effect waves-light btn-large light-blue col m12 sad-connect">Connect to Twitter</a>
                     <a href="#!" class="waves-effect waves-light btn-large red col m12 sad-connect">Connect to Google+</a>
 
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="waves-effect waves-teal light-blue-text btn-flat">Log in</a>
+                <a href="../../sign_up.html" class="waves-effect waves-teal light-blue-text btn-flat">Log in</a>
 
-                <a href="#!" class="waves-effect waves-teal light-blue-text btn-flat">I don't have these accounts</a>
+                <a href="../../sign_up.html" class="waves-effect waves-teal light-blue-text btn-flat">I don't have these accounts</a>
             </div>
         </dialog>
         <!--Dialog for Sign Up-->
 
-        <script src="js/jquery.min.js "></script>
-        <script src="js/materialize.min.js "></script>
-        <script src="js/script.js"></script>
-        <script src="js/actions.js"></script>
-        <script src="resources/categories.js"></script>
+        <script src="../../js/jquery.min.js "></script>
+        <script src="../../js/materialize.min.js "></script>
+        <script src="../../js/script.js"></script>
+        <script src="../../js/actions.js"></script>
+        <script src="../../resources/categories.js"></script>
         <script>
             function FBLogin() {
                 FB.login(function (response) {

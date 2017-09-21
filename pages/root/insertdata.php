@@ -9,8 +9,8 @@ $prodDesc = $_POST["prodDesc"];
 $prodCategory = $_POST["prodCategory"];
 $keywords = json_decode($_POST["keywords"]);
 $prodPrice = $_POST["prodPrice"];
-$sql = "INSERT INTO tblProducts VALUES(0, '$prodName','$prodDesc','$keywords',$prodPrice)";
-echo $sql;
+$sql = "INSERT INTO tblTest VALUES(0, '$prodName','$prodDesc','$keywords',$prodPrice)";
 $result = mysqli_query($con, $sql) or die("Failed to execute query." . mysqli_error($con));
+
 mysqli_close($con);
 ?>

@@ -1,4 +1,8 @@
 <?
+/**
+ * This file is the one responsible for preparing everything for first use.
+ * @author SADism team
+ */
 include '../../includes/classes/connection.php';
 $dbconn = Connection::openConnection(true);
 $sql = $dbconn->query("CREATE TABLE IF NOT EXISTS tblAccounts(
@@ -11,6 +15,6 @@ $sql = $dbconn->query("CREATE TABLE IF NOT EXISTS tblAccounts(
     Photo char(255), 
     AccountType TINYINT(1) UNSIGNED
     )");
-// if($sql) echo "Storage for tables created.";
-// else echo $dbconn->errno.": ".$dbconn->error;
+if ($sql) echo $sql."";#echo "Storage for tables created.";
+else echo $dbconn->error;
 ?>

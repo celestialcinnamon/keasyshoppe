@@ -7,7 +7,7 @@ class User
     {
         try {
 
-            $db = Connection::openConnection();
+            $db = Connection::openConnection(false);
         } catch (Exception $e) {
             if ($e->getCode() == SADERR_DB_DOES_NOT_EXIST) {
                 // User::CreateTable();
@@ -23,7 +23,6 @@ class User
         $results = $statement->fetch();
         return $results;
     }
-
     public $id;
     public $name;
     public $lastName;

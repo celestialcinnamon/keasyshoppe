@@ -48,14 +48,17 @@
                     url: "./createdb.php",
                     dataType: 'json',
                     method: "GET",
-                    success: function (data) {
-                        $('#status').html("Success: " + data.responseText);
+                    success: function (data, textStatus, jqXHR) {
+                        $('#status').html("Cash regi>extster now ready.<br/>");
+                        prepareProductsTable();
                     },
-                    error: function (error) {
+                    error: function (jqXHR, textStatus, errorThrown) {
                         $('#status').html("Error: " + error.responseText);
                     }
                 });
             });
+
+            function prepareProductsTable() {}
 
         </script>
     </body>
