@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <meta charset="utf-8">
+  <title>Casey's Histories &middot; Casey's Online Shop</title>
+
+  <link rel="stylesheet" href="../../css/materialize.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/materialdesignicons.css">
+
+  <style>
+    
+    .alphabet {
+    list-style-type: none;
+    margin:0px auto 0;
+    padding:0;
+    cursor: pointer;
+    width:95%;
+    text-align:center;
+}
+
+.alphabet li {
+    float:left;
+    margin:0;
+    padding:0;
+    border-right:1px solid darkgrey;
+    font-size: 13px;
+    -moz-box-sizing:border-box;
+    color:gray;
+    display:inline-block;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    width:3.84%;
+}
+
+.alphabet li:last-child {
+    border-right: none;
+}
+
+.alphabet li:hover {
+     color:#0084FF ;
+    background-color: lightgrey;
+}
+
+    #filterul {
+      width: 250px;
+    }
+
+    #filterli {
+      display: inline-block;
+      width: 88px;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .resizer {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 10px 30%;
+    }
+
+    .resizer-parent {
+      padding: 10px 0;
+    }
+  </style>
+
+
+</head>
+
+<body onload="fetchProductDetails()">
+
+  <!-- Navbar -->
+  <!-- Fix the navbar to the top of the browser -->
+  <div class="navbar-fixed">
+    <!-- Actual navbar -->
+    <nav class="sad-crimson">
+      <div class="nav-wrapper">
+        <!-- Hamburger menu for mobile -->
+        <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+
+        <!-- Logo sa Navigation Bar -->
+        <a href="dashboard.html" data-tooltip="Back to Home" class="tooltipped brand-logo"><img src="../../images/keasy_logo_white.png" style="width:35%" alt=""></a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Navigation on mobile -->
+  <ul id="slide-out" class="side-nav">
+    <li>
+      <!-- Profile Banner -->
+      <div class="user-view">
+
+        <!-- Cover Photo -->
+        <div class="background">
+          <img src="../../images/bg.jpg">
+        </div>
+
+        <!-- Profile Picture -->
+        <a href="#!user"><img class="circle" src="../../images/test_dp.jpg"></a>
+
+        <!-- User Full name -->
+        <a href="#!name"><span class="white-text name">Caseymars Carriedo</span></a>
+
+        <!-- User type -->
+        <a href="#!email"><span class="white-text email">Administrator</span></a>
+      </div>
+    </li>
+
+    <!--Link to Dashboard-->
+    <li><a href="dashboard.html" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a></li>
+
+    <!-- Link to Messages -->
+    <li><a href="messages.html" class="waves-effect"><span id="message-count" class="new badge sad-crimson">3</span><i class="material-icons">messages</i>Messages</a></li>
+
+    <!-- Link to Products -->
+    <li><a href="products.html" class="waves-effect"><i class="material-icons">shop</i>Products</a></li>
+
+    <!-- Dropdown to Customers -->
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <a class="collapsible-header waves-effect">Customers<i class="material-icons">arrow_drop_down</i></a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="transactions.html" class="waves-effect">Transactions</a></li>
+              <li><a href="meetups.html" class="waves-effect"><span id="meetup-count" class="sad-crimson new badge" data-badge-caption="meetups today">4</span>Meetups</a></li>
+              <li><a href="orders.html" class="waves-effect"><span id="meetup-count" class="sad-crimson new badge" data-badge-caption="new orders">4</span>Orders</a></li>
+              <li><a href="complaints.html" class="waves-effect">Complaints</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+
+    <div class="divider"></div>
+    </li>
+    <li><a class="subheader">FOR YOUR CUSTOMERS</a></li>
+    <li><a class="waves-effect" href="../../users/products.html"><i class="material-icons">store</i>See the store</a></li>
+    <li><a class="waves-effect" href="settings.html"><i class="material-icons">settings</i>Customize the site</a></li>
+
+  </ul>
+   <main>
+      <div class="row">
+
+        <!--Top row-->
+        <div class="row">
+          <div class="col s12 m4 l4">
+            <h3 class="sad-roboto-thin">Transaction <span><br/>Histories</span></h3>
+          </div>
+
+            <div class="col hide-on-med-and-down l3 offset-l5">
+          <div class="input-field">
+            <i class="material-icons prefix">filter_list</i>
+            <select id="selection" class="icons" onchange="myFunction()">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1" selected data-icon="../../images/item.png" class="left circle">Account</option>
+                                <option value="2" data-icon="../../images/profile.png" class="left circle">Item</option>
+                            </select>
+          </div>
+        </div>
+
+        </div>
+
+       <div id="Account" style="display:none;"> 
+
+        <div class="row">
+          <!-- <div class="row col hide-on-med-and-down l3">
+          <div class="col hide-on-med-and-down l12">
+            <ul class="collapsible collapsible-accordion" data-collapsible="expandable">
+              <li>
+                <div class="collapsible-header active"><i class="material-icons">short_text</i>Account Name</div>
+                <div class="collapsible-body">
+                  
+                  <ul id="filterul">
+                    <li id="filterli">
+                      <input type="checkbox" id="A" />
+                      <label for="A">A</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="N" />
+                      <label for="N">N</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="B" />
+                      <label for="B">B</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="O" />
+                      <label for="O">O</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="C" />
+                      <label for="C">C</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="P" />
+                      <label for="P">P</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="D" />
+                      <label for="D">D</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="Q" />
+                      <label for="Q">Q</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="E" />
+                      <label for="E">E</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="R" />
+                      <label for="R">R</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="F" />
+                      <label for="F">F</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="S" />
+                      <label for="S">S</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="G" />
+                      <label for="G">G</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="T" />
+                      <label for="T">T</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="H" />
+                      <label for="H">H</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="U" />
+                      <label for="U">U</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="I" />
+                      <label for="I">I</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="V" />
+                      <label for="V">V</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="J" />
+                      <label for="J">J</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="W" />
+                      <label for="W">W</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="K" />
+                      <label for="K">K</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="X" />
+                      <label for="X">X</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="L" />
+                      <label for="L">L</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="Y" />
+                      <label for="Y">Y</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="M" />
+                      <label for="M">M</label>
+                    </li>
+                    <li id="filterli">
+                      <input type="checkbox" id="Z" />
+                      <label for="Z">Z</label>
+                    </li>
+
+                  </ul>
+
+                </div>
+                </div>
+              
+              </div> -->
+
+             <div class="row">
+           <ul class="alphabet">
+                        <li>A</li>
+                        <li>B</li>
+                        <li>C</li>
+                        <li>D</li>
+                        <li>E</li>
+                        <li>F</li>
+                        <li>G</li>
+                        <li>H</li>
+                        <li>I</li>
+                        <li>J</li>
+                        <li>K</li>
+                        <li>L</li>
+                        <li>M</li>
+                        <li>N</li>
+                        <li>O</li>
+                        <li>P</li>
+                        <li>Q</li>
+                        <li>R</li>
+                        <li>S</li>
+                        <li>T</li>
+                        <li>U</li>
+                        <li>V</li>
+                        <li>W</li>
+                        <li>X</li>
+                        <li>Y</li>
+                        <li>Z</li>
+                    </ul>
+
+          </div> 
+
+<div class="row">
+          <div class="col s2 m3 l3 cards-container">
+            <!-- <div class="card hoverable">
+              <div class="card-image resizer-parent">
+                <div class="resizer">
+                  <a href="#YunaNc" id="AccProf" class="modal-trigger">
+                    <img src="../../images/test_dp.jpg" alt="Account Profile">
+                  </a>
+                </div>
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><i class="material-icons right responsive-img tooltipped" data-tooltip="Click or tap on the image for details" data-position="top" data-delay="50">more_vert</i>YunaNc</span>
+              </div>
+              <div class="card-reveal">
+
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>
+       Yuna Nocturnal
+      </span class="product-chips">
+       <p><b>Age :</b> 26 yrs old</p>
+      <p><b>Gender :</b> Female</p>
+     <p><b>Address :</b> Westnyak N.Y</p>
+     
+    </div>
+          </div> -->
+  
+          <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">      
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                        
+                    </div>
+                    <p class="center sad-roboto-bold" style="font-size:18px;margin:0px !important"> Caysey Mars Carriedo</p>
+                    <p class="grey-text center" style="margin-top:0px !important">Customer</p>
+                    <p class="center" style="color:crimson;margin-top:0px !important"><i class="mdi mdi-phone mdi-12px "></i>321-3461</p>
+                    <p class=" grey-text center" style="padding-bottom:25px">Attitude is a little thing that makes a big difference.</p>
+                 
+                       
+                      <a href="#!" class="sad-dior-button waves-effect center-align">SHOW PROFILE</a>
+                     
+                  </div>
+              </div>
+            </div>
+           
+          <div class="col s2 m3 l3 cards-container">
+          <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">      
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                        
+                    </div>
+                    <p class="center sad-roboto-bold" style="font-size:18px;margin:0px !important"> Caysey Mars Carriedo</p>
+                    <p class="grey-text center" style="margin-top:0px !important">Customer</p>
+                    <p class="center" style="color:crimson;margin-top:0px !important"><i class="mdi mdi-phone mdi-12px "></i>321-3461</p>
+                    <p class=" grey-text center" style="padding-bottom:25px">Attitude is a little thing that makes a big difference.</p>
+                 
+                       
+                      <a href="#!" class="sad-dior-button waves-effect center-align">SHOW PROFILE</a>
+                     
+                  </div>
+              </div>
+</div>
+ 
+
+          <div class="col s2 m3 l3 cards-container">
+          <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">      
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                        
+                    </div>
+                    <p class="center sad-roboto-bold" style="font-size:18px;margin:0px !important"> Caysey Mars Carriedo</p>
+                    <p class="grey-text center" style="margin-top:0px !important">Customer</p>
+                    <p class="center" style="color:crimson;margin-top:0px !important"><i class="mdi mdi-phone mdi-12px "></i>321-3461</p>
+                    <p class=" grey-text center" style="padding-bottom:25px">Attitude is a little thing that makes a big difference.</p>
+                 
+                       
+                      <a href="#!" class="sad-dior-button waves-effect center-align">SHOW PROFILE</a>
+                     
+                  </div>
+              </div>
+            </div>
+           
+          <div class="col s2 m3 l3 cards-container">
+          <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">      
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                        
+                    </div>
+                    <p class="center sad-roboto-bold" style="font-size:18px;margin:0px !important"> Caysey Mars Carriedo</p>
+                    <p class="grey-text center" style="margin-top:0px !important">Customer</p>
+                    <p class="center" style="color:crimson;margin-top:0px !important"><i class="mdi mdi-phone mdi-12px "></i>321-3461</p>
+                    <p class=" grey-text center" style="padding-bottom:25px">Attitude is a little thing that makes a big difference.</p>
+                 
+                       
+                      <a href="#!" class="sad-dior-button waves-effect center-align">SHOW PROFILE</a>
+                     
+                  </div>
+              </div>
+</div>
+</div>
+
+<div class="row">
+          <div class="col s2 m3 l3 cards-container">
+          <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">      
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                        
+                    </div>
+                    <p class="center sad-roboto-bold" style="font-size:18px;margin:0px !important"> Caysey Mars Carriedo</p>
+                    <p class="grey-text center" style="margin-top:0px !important">Customer</p>
+                    <p class="center" style="color:crimson;margin-top:0px !important"><i class="mdi mdi-phone mdi-12px "></i>321-3461</p>
+                    <p class=" grey-text center" style="padding-bottom:25px">Attitude is a little thing that makes a big difference.</p>
+                 
+                       
+                      <a href="#!" class="sad-dior-button waves-effect center-align">SHOW PROFILE</a>
+                     
+                  </div>
+              </div>
+            </div>
+           
+          <div class="col s2 m3 l3 cards-container">
+          <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">      
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                        
+                    </div>
+                    <p class="center sad-roboto-bold" style="font-size:18px;margin:0px !important"> Caysey Mars Carriedo</p>
+                    <p class="grey-text center" style="margin-top:0px !important">Customer</p>
+                    <p class="center" style="color:crimson;margin-top:0px !important"><i class="mdi mdi-phone mdi-12px "></i>321-3461</p>
+                    <p class=" grey-text center" style="padding-bottom:25px">Attitude is a little thing that makes a big difference.</p>
+                 
+                       
+                      <a href="#!" class="sad-dior-button waves-effect center-align">SHOW PROFILE</a>
+                     
+                  </div>
+              </div>
+</div>
+ 
+
+          <div class="col s2 m3 l3 cards-container">
+          <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">      
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                        
+                    </div>
+                    <p class="center sad-roboto-bold" style="font-size:18px;margin:0px !important"> Caysey Mars Carriedo</p>
+                    <p class="grey-text center" style="margin-top:0px !important">Customer</p>
+                    <p class="center" style="color:crimson;margin-top:0px !important"><i class="mdi mdi-phone mdi-12px "></i>321-3461</p>
+                    <p class=" grey-text center" style="padding-bottom:25px">Attitude is a little thing that makes a big difference.</p>
+                 
+                       
+                      <a href="#!" class="sad-dior-button waves-effect center-align">SHOW PROFILE</a>
+                     
+                  </div>
+              </div>
+            </div>
+           
+          <div class="col s2 m3 l3 cards-container">
+          <div class="card hoverable">
+                  <div class="card-image resizer-parent">
+                    <div class="resizer">      
+                        <img src="../../images/test_dp.jpg" alt="Account Profile">
+                        
+                    </div>
+                    <p class="center sad-roboto-bold" style="font-size:18px;margin:0px !important"> Caysey Mars Carriedo</p>
+                    <p class="grey-text center" style="margin-top:0px !important">Customer</p>
+                    <p class="center" style="color:crimson;margin-top:0px !important"><i class="mdi mdi-phone mdi-12px "></i>321-3461</p>
+                    <p class=" grey-text center" style="padding-bottom:25px">Attitude is a little thing that makes a big difference.</p>
+                 
+                       
+                      <a href="#!" class="sad-dior-button waves-effect center-align">SHOW PROFILE</a>
+                     
+                  </div>
+              </div>
+</div>
+</div>
+
+     </div>   
+    </div>
+  
+ <div id="Item" style="display:none;"> 
+    <div class="row">
+        <div class="row col hide-on-med-and-down l3">
+            <div class="col hide-on-med-and-down l12">
+              <ul class="collapsible collapsible-accordion" data-collapsible="expandable">
+                <li>
+                  <div class="collapsible-header active"><i class="material-icons">attach_money</i>Price Range</div>
+                  <div class="collapsible-body">
+                    <span>
+
+               </span>
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">short_text</i>Item Name</div>
+                  <div class="collapsible-body">
+                    <ul id="filterul">
+                      <li id="filterli">
+                        <input type="checkbox" id="A" />
+                        <label for="A">A</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="N" />
+                        <label for="N">N</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="B" />
+                        <label for="B">B</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="O" />
+                        <label for="O">O</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="C" />
+                        <label for="C">C</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="P" />
+                        <label for="P">P</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="D" />
+                        <label for="D">D</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="Q" />
+                        <label for="Q">Q</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="E" />
+                        <label for="E">E</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="R" />
+                        <label for="R">R</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="F" />
+                        <label for="F">F</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="S" />
+                        <label for="S">S</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="G" />
+                        <label for="G">G</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="T" />
+                        <label for="T">T</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="H" />
+                        <label for="H">H</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="U" />
+                        <label for="U">U</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="I" />
+                        <label for="I">I</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="V" />
+                        <label for="V">V</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="J" />
+                        <label for="J">J</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="W" />
+                        <label for="W">W</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="K" />
+                        <label for="K">K</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="X" />
+                        <label for="X">X</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="L" />
+                        <label for="L">L</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="Y" />
+                        <label for="Y">Y</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="M" />
+                        <label for="M">M</label>
+                      </li>
+                      <li id="filterli">
+                        <input type="checkbox" id="Z" />
+                        <label for="Z">Z</label>
+                      </li>
+
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">library_books</i>Categories</div>
+                  <div class="collapsible-body">
+                    <ul>
+                      <li>
+                        <input type="checkbox" id="Baby & Toddler" />
+                        <label for="Baby & Toddler">Baby & Toddler</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Devices" />
+                        <label for="Devices">Devices</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Fashion" />
+                        <label for="Fashion">Fashion</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Food & Drinks" />
+                        <label for="Food & Drinks">Food & Drinks</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Health & Beauty" />
+                        <label for="Health & Beauty">Health & Beauty</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Home & Living" />
+                        <label for="Home & Living">Home & Living</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Pets" />
+                        <label for="Pets">Pets</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Sports & Outdoors" />
+                        <label for="Sports & Outdoors">Sports & Outdoors</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Toys & Games" />
+                        <label for="Toys & Games">Toys & Games</label>
+                      </li>
+
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+              <div class="col s2 m3 l9 container">
+          <div class="card-panel sad-crimson" style="padding:1%;">
+              <h5><span class="white-text"><center>History Of Transactions</center></span></h5>
+          </div>
+          <div> 
+                                <table style="overflow-x: visible;" class="bordered striped highlight">
+                                    <thead>
+                                        <tr>
+                                            <th>Item Number</th>
+                                            <th>Item Name</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>Date Sold</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>09923</td>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>22 pcs.</td>
+                                            <td>P 2,800</td>
+                                            <td>Aug. 07, 2017</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09924</td>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>43 pcs.</td>
+                                            <td>P 2,800</td>
+                                            <td>Aug. 07, 2017</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09925</td>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>35 pcs.</td>
+                                            <td>P 2,800</td>
+                                            <td>Aug. 07, 2017</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09926</td>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>126 pcs.</td>
+                                            <td>P 2,800</td>
+                                            <td>Aug. 07, 2017</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09927</td>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>2 pcs.</td>
+                                            <td>P 2,800</td>
+                                            <td>Aug. 07, 2017</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09928</td>
+                                            <td>Kipling Bag (Red)</td>
+                                            <td>2 pcs.</td>
+                                            <td>P 2,800</td>
+                                            <td>Aug. 07, 2017</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+          </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+     </div>
+  </main>
+
+  <footer class="page-footer grey darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Our Identity</h5>
+          <p class="grey-text text-lighten-4">From cellphone accessories to your pet's dinner, we've got 'em. Through our long list of categories, we give you
+            only the best and affordable items. We accept cash on delivery as a mode of payment, and we deliver your items.We
+            also accept <a href="#!" class="light-blue-text text-lighten-3">resellers</a>, and they receive P20.00 discount
+            per item.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/materialize.js"></script>
+  <script src="../../js/script.js"></script>
+  <script src="../../js/actions.js"></script>
+
+
+  <script>
+function myFunction() {
+    var x = document.getElementById("Account");
+    var y = document.getElementById("Item");
+
+    if($("#selection").val()==1)
+    {
+      x.style.display="";
+      y.style.display="none";
+
+    }else if($("#selection").val()==2)
+    {
+
+      x.style.display="none";
+      y.style.display="";
+    }else
+    {
+       x.style.display="none";
+      y.style.display="none";
+    }
+}
+myFunction();
+</script>
+
+</body>
+
+</html>

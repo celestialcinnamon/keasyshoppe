@@ -57,37 +57,72 @@
 
           </div>
         </h1>
-        <form>
+        <form method="POST">
           <div class="input-container">
-            <input type="#{type}" class="browser-default" id="#{label}" required="required" />
+            <input type="#{type}" class="browser-default" id="username" required="required" />
             <label for="#{label}">Username</label>
             <div class="bar"></div>
           </div>
           <div class="input-container">
-            <input type="password" class="browser-default" id="#{label}" required="required" />
+            <input minlength="8" onchange="checkPass()" type="password" class="browser-default" id="pass" required="required" />
             <label for="">Password</label>
             <div class="bar"></div>
           </div>
           <div class="input-container">
-            <input type="password" class="browser-default" id="#{label}" required="required" />
-            <label for="#{label}">Repeat Password</label>
+            <input name="rePass" type="password" class="browser-default" id="rePass" required="required" />
+            <label for="rePass">Repeat Password</label>
             <div class="bar"></div>
           </div>
           <div class="button-container">
-            <button>
+            <button onclick="registerMe()">
               <span>Next</span>
             </button>
           </div>
         </form>
       </div>
     </div>
+    <button onclick="registerMe()">Next</button>
+    <div class="status white"></div>
 
     <script src='../../js/jquery.min.js'></script>
     <script src="../../js/materialize.min.js"></script>
     <script src="../../js/index.js"></script>
+    <script src="../../js/script.js"></script>
 
     <script>
+      function registerMe() {
+        var username = $('#username').val();
+        var pass = $('#pass').val();
+        var rePass = $('#rePass').val();
+        if (pass == rePass) {
+          $.ajax({
+            data: {
+              "u": username,
+              "p": pass
+            },
+            url: "../../pages/createaccount_controller.php",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            method: "POST",
+            success: (data) => {
+              $('div.status').html("Success: " + JSON.stringify(data));
+              var jsonRtn = JSON.stringify(data);
+              if (jsonRtn.statusCode == 100001) {
+                Materialize.toast("Account successfully created.", 4000);
+              } else {
+                Materialize.toast(jsonRtn.status, 4000);
+              }
+            },
+            error: (data) => {
+              $('div.status').html(JSON.stringify(data));
+            }
+          });
+        }
+      }
 
+      function checkPass() {
+        var pass = $('#pass').val();
+        if (pass.length >= 8) {}
+      }
 
     </script>
   </body>

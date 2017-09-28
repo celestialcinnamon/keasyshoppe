@@ -23,7 +23,9 @@ class Session {
 
         $connection = new Connection;
         $db = $connection->openConnection_Login();
-        $sql = $db->query("INSERT INTO ".DB_TBL_LOGINS." VALUES('$selector', '$hashedToken', '$userId', '$timestamp')");
+        $sql = $db->prepare("INSERT INTO ".DB_TBL_LOGINS." VALUES(:selector, :hashedToken, :userId, :timestamp)");
+        $sql->bindValue(':selector');
+        
     }
     public function relogUser($userId)
     {

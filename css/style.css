@@ -794,3 +794,21 @@ ul.sad-wizard-progress li:last-of-type {
     border-color: dodgerblue;
     background-color: rgba(30, 144, 255, .25)
 }
+
+
+.sad-dior-button{
+    color:#0084FF ;
+    background-color: rgba(0,0,0,0);
+    padding:15px 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.sad-dior-button:hover{
+    color: white;
+    background-color: #0084FF;
+    transition: background-color 300ms, color 300ms;
+}

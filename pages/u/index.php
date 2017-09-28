@@ -742,9 +742,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="../../sign_up.html" class="waves-effect waves-teal light-blue-text btn-flat">Log in</a>
+                <!-- <a href="../../sign_up.html" class="waves-effect waves-teal light-blue-text btn-flat">Log in</a> -->
 
-                <a href="../../sign_up.html" class="waves-effect waves-teal light-blue-text btn-flat">I don't have these accounts</a>
+                <a href="../../includes/views/sign_up.html" class="waves-effect waves-teal light-blue-text btn-flat">I don't have these accounts</a>
             </div>
         </dialog>
         <!--Dialog for Sign Up-->

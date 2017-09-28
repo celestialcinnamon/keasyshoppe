@@ -5,4 +5,19 @@ define('DB_PASS', 'keasyshoppe');
 define('DB_NAME', 'db_keasyshoppe');
 define('DB_TBL_ACCOUNTS', 'tblAccounts');
 define('DB_TBL_LOGINS', 'tblLogins');
+define('DB_ACCOUNT_CREATION_SUCCESS', 100001);
+
+abstract class LoginMode
+{
+    const KEASYSHOPPE = 10001;
+    const FACEBOOK = 10002;
+    const GOOGLE = 10003;
+}
+
+abstract class AccountExceptions{
+    const PASSWORD_DOES_NOT_MATCH = 20001;
+    const USERNAME_DOES_NOT_EXIST = 20002;
+    const USERNAME_PASSWORD_EMPTY = 20003;
+    const USERNAME_EXISTS = 20004;
+}
 ?>

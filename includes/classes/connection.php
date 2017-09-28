@@ -22,5 +22,14 @@ class Connection
         }
         return $db;
     }
+
+    public static function open()
+    {
+        $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        if ($db->connect_error) {
+            throw new Exception($db->connect_error, $db->connect_errno);
+        }
+        return $db;
+    }
 }
 ?>
