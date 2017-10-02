@@ -4,6 +4,6 @@ $username = $_POST['u'];
 $password = $_POST['query'];
 
 $user = new User($username);
-$user->LogIn($password, KEASYSHOPPE);
-
+$retval = $user->LogIn($password, LoginMode::KEASYSHOPPE);
+echo $retval;
 ?>

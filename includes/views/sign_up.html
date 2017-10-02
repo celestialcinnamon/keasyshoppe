@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="../../css/materialize.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/style_1.css">
+    <style>
+      .invalid {
+        background-color: rgba(253, 152, 172, 0.5) !important;
+        color: crimson !important;
+      }
+
+    </style>
   </head>
 
   <body>
@@ -27,26 +34,24 @@
         <h1 class="title">Login</h1>
         <form>
           <div class="input-container">
-            <input type="text" class="browser-default" id="#{label}" required="required" />
-            <label for="#{label}">Username</label>
+            <input type="text" class="browser-default" id="log_username" required="required" />
+            <label for="log_username">Username</label>
             <div class="bar"></div>
           </div>
           <div class="input-container">
-            <input type="password" class="browser-default" id="#{label}" required="required" />
-            <label for="#{label}">Password</label>
+            <input type="password" class="browser-default" id="log_password" required="required" />
+            <label for="log_password">Password</label>
             <div class="bar"></div>
           </div>
-          <div class="button-containers row">
-            <div class="col s6 offset-s3">
-              <button class=" waves-effect waves-block btn-ghost btn-ghost-large">
-                <span>Go</span>
-              </button>
-            </div>
-          </div>
+        </form>
+        <div class="button-container">
+          <button onclick="logMeIn()" class=" waves-effect waves-block btn-ghost btn-ghost-large">
+            <span>Go</span>
+          </button>
           <div class="footer">
             <a href="#">Forgot your password?</a>
           </div>
-        </form>
+        </div>
       </div>
       <div class="card alt">
         <div class="toggle mdi mdi-account-plus">
@@ -59,37 +64,84 @@
         </h1>
         <form method="POST">
           <div class="input-container">
-            <input type="#{type}" class="browser-default" id="username" required="required" />
-            <label for="#{label}">Username</label>
+            <input type="text" class="browser-default" id="username" required="required" />
+            <label for="username">Username</label>
             <div class="bar"></div>
           </div>
           <div class="input-container">
             <input minlength="8" onchange="checkPass()" type="password" class="browser-default" id="pass" required="required" />
             <label for="">Password</label>
-            <div class="bar"></div>
+            <div class="bar" id="d2"></div>
           </div>
           <div class="input-container">
             <input name="rePass" type="password" class="browser-default" id="rePass" required="required" />
             <label for="rePass">Repeat Password</label>
             <div class="bar"></div>
-          </div>
-          <div class="button-container">
-            <button onclick="registerMe()">
-              <span>Next</span>
-            </button>
+
           </div>
         </form>
+        <div class="button-container">
+          <button class="modal-trigger" data-target="loader" onclick="registerMe()">
+            <span>Next</span>
+          </button>
+        </div>
       </div>
     </div>
-    <button onclick="registerMe()">Next</button>
-    <div class="status white"></div>
 
+    <div id="loader" style="height:500px;" class="modal transparent z-depth-0">
+      <div class="modal-content">
+        <div class="center">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-red-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+          <p class="flow-text white-text">Creating your account...</p>
+        </div>
+
+      </div>
+    </div>
+    <div id="loader_log" style="height:500px;" class="modal transparent z-depth-0">
+      <div class="modal-content">
+        <div class="center">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-red-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+          <p class="flow-text white-text">Logging into your account...</p>
+        </div>
+
+      </div>
+    </div>
     <script src='../../js/jquery.min.js'></script>
     <script src="../../js/materialize.min.js"></script>
     <script src="../../js/index.js"></script>
     <script src="../../js/script.js"></script>
 
     <script>
+      $(document).ready(() => {
+        $('#error_username').hide();
+        $('#error_password').hide();
+        $('#error_repass').hide();
+      });
+
       function registerMe() {
         var username = $('#username').val();
         var pass = $('#pass').val();
@@ -98,30 +150,69 @@
           $.ajax({
             data: {
               "u": username,
-              "p": pass
+              "q": pass
             },
             url: "../../pages/createaccount_controller.php",
             contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             method: "POST",
             success: (data) => {
-              $('div.status').html("Success: " + JSON.stringify(data));
-              var jsonRtn = JSON.stringify(data);
-              if (jsonRtn.statusCode == 100001) {
-                Materialize.toast("Account successfully created.", 4000);
-              } else {
-                Materialize.toast(jsonRtn.status, 4000);
+              var retval = JSON.parse(data);
+              if (retval.statusCode == 20004) {
+                $('#loader').modal('close');
+                Materialize.toast("Username already taken", 4000);
+                $('#username').addClass('invalid');
+              } else if (retval.statusCode == 100001) {
+                Materialize.toast("Account created successfully. Redirecting...", 4000);
+                keasy_post('../../pages/u/', {
+                  u: retval.username
+                });
               }
             },
             error: (data) => {
               $('div.status').html(JSON.stringify(data));
             }
           });
+        } else {
+          Materialize.toast('Passwords don\'t match.', 4000);
         }
       }
 
       function checkPass() {
         var pass = $('#pass').val();
-        if (pass.length >= 8) {}
+        if (!(pass.length >= 8)) {}
+      }
+
+      function logMeIn() {
+        var username = $('#log_username').val();
+        var password = $('#log_password').val();
+        $('#loader_log').modal('open');
+        $.ajax({
+          data: {
+            "u": username,
+            "query": password
+          },
+          url: "../../pages/login_controller.php",
+          contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+          method: "POST",
+          success: (data) => {
+            var retval = JSON.parse(data);
+            if (retval.status == 120001) {
+              Materialize.toast("Account logged in successfully. Redirecting...", 4000);
+              keasy_post('../../pages/u/', {
+                u: username
+              });
+            } else if (retval.status == 20001) {
+              $('#loader_log').modal('close');
+              Materialize.toast("You've got the wrong password.", 4000);
+            } else if (retval.status == 20002) {
+              $('#loader_log').modal('close');
+              Materialize.toast("Seems like you have not registered yet.", 4000)
+            }
+          },
+          error: (data) => {
+            alert("Error: " + JSON.parse(data));
+          }
+        });
       }
 
     </script>

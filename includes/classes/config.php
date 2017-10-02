@@ -14,10 +14,16 @@ abstract class LoginMode
     const GOOGLE = 10003;
 }
 
-abstract class AccountExceptions{
+abstract class AccountExceptions
+{
     const PASSWORD_DOES_NOT_MATCH = 20001;
     const USERNAME_DOES_NOT_EXIST = 20002;
     const USERNAME_PASSWORD_EMPTY = 20003;
     const USERNAME_EXISTS = 20004;
+}
+
+abstract class AccountStati
+{
+    const USERNAME_LOGGED_IN = 120001;
 }
 ?>

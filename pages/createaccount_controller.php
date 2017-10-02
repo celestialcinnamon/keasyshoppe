@@ -2,12 +2,12 @@
 include '../includes/classes/user.php';
 
 $username = $_POST['u'];
-$password = $_POST['p'];
+$password = $_POST['q'];
 
-$user = new User($username,"","","","","", $password);
-$jsonRtn = $user->CreateAccount();
-// $jsonRtn = json_decode($jsonRtn, true);
+$user = new User($username, "", "", "","","","","","",$password);
+$returnValue = $user->CreateAccount();
+// setcookie("accUsername", json_decode($returnValue)['username']);
+echo $returnValue;
 
-echo $jsonRtn;
 
 ?>

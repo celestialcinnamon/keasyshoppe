@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+if (!isset($_COOKIE["accUsername"])) {
+    if (isset($_POST['u'])) {
+        setcookie("accUsername", $_POST["u"], time() + (86400 * 30), "/");
+    }
+}
+?>
 <html>
 
     <head>
@@ -742,7 +749,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <!-- <a href="../../sign_up.html" class="waves-effect waves-teal light-blue-text btn-flat">Log in</a> -->
+                <a href="#!" class="waves-effect waves-teal light-blue-text btn-flat" onclick="destroyCookies()">Log out</a>
 
                 <a href="../../includes/views/sign_up.html" class="waves-effect waves-teal light-blue-text btn-flat">I don't have these accounts</a>
             </div>
@@ -755,13 +762,20 @@
         <script src="../../js/actions.js"></script>
         <script src="../../resources/categories.js"></script>
         <script>
+            function destroyCookies(){
+                // document.cookie = 'accUsername=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=./;'; 
+                window.location.replace('./logout.php');
+            }
             function FBLogin() {
                 FB.login(function (response) {
                     // Handle the response object, like in statusChangeCallback() in our demo
                     // code.
                 });
             }
-
+            var dcookie = keasy_getCookie('accUsername');
+            if(!(dcookie==null)){
+                Materialize.toast('Welcome back, '+dcookie, 4000);
+            }
         </script>
     </body>
 
