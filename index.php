@@ -8,21 +8,7 @@
 </head>
 <body>
 <?
-// // include './includes/classes/connection.php';
-// // $uri = "";
-// // setHeader();
-// // header('Location:' . $uri . "./pages/u/");
 
-// // function setHeader()
-// // {
-// //     if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-// //         $uri = 'https://';
-// //     }
-// //     else {
-// //         $uri = 'http://';
-// //     }
-// //     $uri .= $_SERVER['HTTP_HOST'];
-// // }
 include 'index2.php';
 ?>
     

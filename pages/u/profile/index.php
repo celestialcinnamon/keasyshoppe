@@ -1,3 +1,10 @@
+<?php
+if (!isset($_COOKIE["accUsername"])) {
+    if (isset($_POST['u'])) {
+        setcookie("accUsername", $_POST["u"], time() + (86400 * 30), "/");
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +13,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Profile</title>
-        <link rel="stylesheet" href="css/materialdesignicons.css">
-        <link rel="stylesheet" href="css/materialize.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../../../css/materialdesignicons.css">
+        <link rel="stylesheet" href="../../../css/materialize.css">
+        <link rel="stylesheet" href="../../../css/style.css">
         <style>
             #top-level-group {
                 width: 600%;
@@ -40,12 +47,12 @@
                 zoom: 1;
             }
 
-            nav ul li {
+            nav ul li.dropdown {
                 display: inline;
                 position: relative;
             }
 
-            nav ul li div.clearfix {
+            nav ul li.dropdown div.clearfix {
                 position: absolute;
                 top: -9999px;
                 right: -225%;
@@ -53,14 +60,13 @@
                 transition: top 700ms;
             }
 
-            nav ul li:hover div {
-                /* left: 0; */
+            nav ul li.dropdown:hover div {
                 top: 65px;
                 transition: top 700ms, opacity 500ms;
                 opacity: 1;
             }
 
-            nav ul li ul li {
+            nav ul li.dropdown ul li {
                 display: list-item;
                 list-style: none;
                 margin: 0;
@@ -69,15 +75,18 @@
             }
 
             #cover {
-                background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(' images/style2.jpg');
+                background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75))
+                <?php
+                if(isset($_POST["userdata"])){
+                    $userdata = json_decode($_POST["userdata"]);
+                    echo ", url(".$userdata["imagepath"].")";
+                } else {
+                    echo ", url('../../../images/bg.jpg');";
+                }
+                ?>
 
                 filter: grayscale(100%) brightness(50%) saturate(0%);
-                /* position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: -1; */
+
             }
 
             .quote {
@@ -85,8 +94,7 @@
             }
 
             .waves-effect.waves-blue .waves-ripple {
-                /* The alpha value allows the text and background color
-     of the button to still show through. */
+
                 background-color: rgba(66, 133, 244, 0.65);
             }
 
@@ -100,14 +108,14 @@
                     <a href="#" class="brand-logo hide-on-med-and-down">
                         <!--Large devices-->
                         <div class="center">
-                            <img style="width:35%; display:block;" src="images/keasy_logo_white.png">
+                            <img style="width:35%; display:block;" src="../../../images/keasy_logo_white.png">
 
                         </div>
                     </a>
                     <a href="#" class="brand-logo hide-on-large-only hide-on-small-only">
                         <!--Medium devices-->
                         <div class="center">
-                            <img class="img-responsive" width="45%" src="images/keasy_logo_white.png">
+                            <img class="img-responsive" width="45%" src="../../../images/keasy_logo_white.png">
 
                         </div>
                     </a>
@@ -115,7 +123,7 @@
                     <a href="#" class="brand-logo hide-on-med-and-up">
                         <!--Small devices-->
                         <div class="center">
-                            <img class="img-responsive" width="60%" src="images/keasy_logo_white.png">
+                            <img class="img-responsive" width="60%" src="../../../images/keasy_logo_white.png">
 
                         </div>
                     </a>
@@ -167,20 +175,71 @@
                             </div>
                         </li>
                         <li>
-                            <a href="pages/users/products.html" class="waves-effect waves-light">Shop Now</a>
+                            <a href="../../../pages/u/shop-now" class="waves-effect waves-light">Shop Now</a>
                         </li>
 
-                        <li>
+                        <li class="hide">
                             <a href="#signupModal" class="modal-trigger waves-effect waves-light">Log in</a>
                         </li>
-                        <a class="btn btn-large waves-effect waves-light light-blue" style="background-color: crimson !important;" id="modal-trigger"
-                            href="#modal1"><i class="material-icons">notifications</i>
-                            <div class="chip">4</div>
-                        </a>
-                        <a class="btn btn-large waves-effect waves-light light-blue" style="background-color: crimson !important;" id="modal-trigger"
-                            href="#modal1"><i class="material-icons">shopping_cart</i>
-                            <div class="chip">4</div>
-                        </a>
+                        <li>
+                            <a class="waves-effect waves-light" id="notification_button"><i class="material-icons hide">notifications</i>
+                                <div class="chip light-blue white-text hide">4</div>
+                                <img class="white circle" width="25" src=
+                                <?
+                                    if(isset($_POST["userdata"])){
+                                            $userdata = json_decode($_POST["userdata"]);
+                                            echo '"'.$userdata["dpPath"].'"';
+                                        } else {
+                                            echo '"http://localhost/keasyshoppe/images/user-offline-symbolic.svg"';
+                                        }
+                                ?>
+                                >
+                            </a>
+                            <div class="card black-text" style="position: absolute; right: 10px; border-radius: 5px; display:none;" id="notification_dropdown">
+                                <div class="card-content" style="border-radius: 5px 5px 0px 0px; height: 150px; background-image: url('../../../images/bg.jpg'); no-repeat; background-size: cover; border: none;">
+                                    <div class="center">
+                                        <img class="circle" src="../../../images/test_dp.jpg" style="width: 50px; margin: 0 !important; ">
+                                        <ul>
+                                            <li>New User</li>
+                                            <li>
+                                                <button class="btn-flat light-blue-text waves-effect sad-waves-light-blue">Log out</button>
+                                            </li>   
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-tabs">
+                                    <ul class="tabs tabs-transparent sad-crimson ">
+                                        <li class="tab">
+                                            <a href="#notification_panel"><i class="mdi mdi-account-circle"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-content">
+                                    <div id="account_panel">
+
+                                    </div>
+                                    <div id="notification_panel">
+                                        <p class="hide">You have no notifications.</p>
+                                        <ul class="collection" style="margin:0;">
+                                            <li class="collection-item avatar dismissable">
+                                                <img src="../../../images/test_dp.jpg" class="circle" width="25">
+                                                <span class="title">Yuna K. joined Keasyshoppe</span>
+                                                <p>a few minutes ago</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div id="message_panel">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="btn btn-large waves-effect waves-light light-blue" style="background-color: crimson !important;" id="modal-trigger"
+                                href="#modal1"><i class="material-icons">shopping_cart</i>
+                                <div class="chip">4</div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -196,9 +255,26 @@
                         <div class="card-content">
                             <div class="left" style="margin-left: 100px;">
                                 <div class="center">
-                                    <img src="images/test_dp.jpg" class="circle responsive-img">
-                                    <p id="edit-p" class="flow-text sad-roboto-medium">Yuna K. <i class="mdi mdi-coffee yellow-text text-darken-3"></i>
-
+                                    <img src=<?
+                                        if(isset($_POST["userdata"])){
+                                            $userdata = json_decode($_POST["userdata"]);
+                                            echo '"'.$userdata["dpPath"].'"';
+                                        } else {
+                                            echo '"http://localhost/keasyshoppe/images/user-offline-symbolic.svg" style="padding: 10px;"';
+                                        }
+                                    ?>
+                                     class="circle responsive-img black"  width="100">
+                                    <p id="edit-p" class="flow-text sad-roboto-medium">
+                                    <?
+                                        if(isset($_POST["userdata"])){
+                                            echo $userdata["fullName"];
+                                            if($userdata["accountType"]=="ADMIN"){
+                                                echo '<i class="mdi mdi-coffee yellow-text text-darken-3"></i>';
+                                            }
+                                        } else {
+                                            echo "New User";
+                                        }
+                                    ?>
                                     </p>
                                     <button class="btn-flat waves-effect waves-blue blue-text"><i class="left mdi mdi-pencil"></i> edit</button>
                                 </div>
@@ -210,7 +286,19 @@
                     <div class="card transparent white-text z-depth-0">
                         <div class="card-content quote">
                             <div class="right">
-                                <p class="flow-text right-align" style="font-size: 35px !important">Attitude is the ultimatest eme of the universal intergalactic world peace.</p>
+                                <p class="flow-text right-align" style="font-size: 18pt !important">
+                                    <?
+                                    if(isset($_POST["userdata"])){
+                                        if(isset($userdata["motto"])){
+                                            echo $userdata["motto"];
+                                        } else {
+                                            echo "The power to enact, persuade, and be is within you and only you alone. What matters is not how strong that power is, but what you do with it.";
+                                        }
+                                    } else {
+                                        echo "The power to enact, persuade, and be is within you and only you alone. What matters is not how strong that power is, but what you do with it.";
+                                    }
+                                    ?>
+                                </p>
                                 <a class="right btn-flat waves-effect blue-text" target="_blank" href="https://www.facebook.com/gregantares"><i class="mdi mdi-facebook-box mdi-36px left"></i> FOLLOW</a>
                             </div>
                         </div>
@@ -219,7 +307,7 @@
             </div>
         </div>
 
-        <div class="card-content ">
+        <!--div class="card-content ">
             <div class="row profile-overlay">
                 <div class="col m6">
 
@@ -323,11 +411,19 @@
             </div>
         </footer>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/materialize.min.js"></script>
-        <script src="js/script.js"></script>
+        <script src="../../../js/jquery.min.js"></script>
+        <script src="../../../js/materialize.min.js"></script>
+        <script src="../../../js/script.js"></script>
         <script>
-
+            $(document).ready(() => {
+                $('#notification_button').on('click', (e) => {
+                    $('#notification_dropdown').slideToggle();
+                });
+                $('*').on('click', () => {
+                    e.stopPropagation();
+                    $('#notification_dropdown').slideUp();
+                });
+            });
 
         </script>
     </body>

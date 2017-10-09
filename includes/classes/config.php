@@ -6,6 +6,7 @@ define('DB_NAME', 'db_keasyshoppe');
 define('DB_TBL_ACCOUNTS', 'tblAccounts');
 define('DB_TBL_LOGINS', 'tblLogins');
 define('DB_ACCOUNT_CREATION_SUCCESS', 100001);
+define('DB_UPLOAD_IMAGE_SUCCESS', 510001);
 
 abstract class LoginMode
 {

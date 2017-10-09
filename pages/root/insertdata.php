@@ -1,16 +1,39 @@
-<?php
-$con = mysqli_connect('localhost', 'admin', 'keasyshoppe', 'db_testKeasy2');
-if (!$con) {
-    die("Unable to connect to database." . mysqli_error($con));
-}
-mysqli_select_db($con, "db_testKeasy2");
-$prodName = $_POST["Name"];
-$prodDesc = $_POST["prodDesc"];
-$prodCategory = $_POST["prodCategory"];
-$keywords = json_decode($_POST["keywords"]);
-$prodPrice = $_POST["prodPrice"];
-$sql = "INSERT INTO tblTest VALUES(0, '$prodName','$prodDesc','$keywords',$prodPrice)";
-$result = mysqli_query($con, $sql) or die("Failed to execute query." . mysqli_error($con));
+<?php #Inserts a new product to database
+include '../../includes/classes/connection.php';
 
-mysqli_close($con);
+$dbconn = Connection::open();
+$prod_name = $_POST['Name'];
+$prod_price = $_POST['price'];
+$prod_desc = $_POST['prodDesc'];
+$prod_category = $_POST['prodCategory'];
+// $prod_keywords = $_POST['keywords'];
+// $target_file = $_POST['mainImage'];
+// $target_file_multiple = $_POST['secondaryImages'];
+
+//Upload image
+// $main_image = $_FILES['uploadMainImage'];
+// $secondary_image = $_FILES['uploadSecondaryImages'];
+// $target_dir = 'http://localhost/images/uploads/';
+// $target_file = $target_dir .time(). basename($_FILES["uploadMainImage"]["tmp_name"]);
+// $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+// $check = getimagesize($_FILES["uploadMainImage"]["tmp_name"]);
+// if ($check !== false) {
+//     echo "File is an image - " . $check["mime"] . ".";
+// }
+// else {
+//     echo "File is not an image.";
+//     $uploadOk = 0;
+// }
+
+// $k = move_uploaded_file($_FILES["uploadMainImage"]["tmp_name"], $target_file);
+// if ($k) {
+//     echo "The file <code>" . basename($_FILES["uploadMainImage"]["name"]) . "</code> has been uploaded.";
+// }
+// else {
+//     echo "Something went wrong.";
+// }
+$sql = "INSERT INTO tblProducts VALUES(0, '{$prod_name}', {$prod_price}, '{$prod_desc}', {$prod_category}, '', '', '', '', '')";
+$dbconn->query($sql);
+$dbconn->close();
+
 ?>
