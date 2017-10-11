@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Products &middot; Keasyshoppe&mdash;Shop 'till you drop</title>
+        <link rel="stylesheet" href="http://localhost/keasyshoppe/css/materialize.css">
+        <link rel="stylesheet" href="http://localhost/keasyshoppe/css/materialdesignicons.css">
+        <link rel="stylesheet" href="http://localhost/keasyshoppe/css/style.css">
+    </head>
+
+    <body>
+
+        <div class="navbar-fixed">
+            <nav class="sad-crimson">
+                <div class="nav-wrapper">
+
+                </div>
+            </nav>
+        </div>
+        <main class="section">
+            <form action="./addproduct.php" method="post">
+                <div class="row section">
+                    <div class="col s12 m4 l3">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="http://localhost/keasyshoppe/images/user-offline-symbolic.svg" id="mainImageUserFile">
+                            </div>
+                            <div class="card-content">
+                                <p class="flow-text">Add an image for your product</p>
+                                <div class="file-field input-field">
+                                    <div class="btn-flat waves-effect light-blue-text col s12">
+                                        <span><i class="mdi mdi-image-multiple left"></i> Add an image</span>
+                                        <input type="file" accept="image/*" onchange="displayMainImage(this.files)">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="col s12 btn-flat waves-effect sad-waves-light-blue light-blue-text"><i class="mdi mdi-image-multiple left"></i> Add secondary images</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+        <script src="http://localhost/keasyshoppe/js/jquery.min.js"></script>
+        <script src="http://localhost/keasyshoppe/js/materialize.min.js"></script>
+        <script src="http://localhost/keasyshoppe/js/script.js"></script>
+        <script>
+            /** 
+             * This function displays the selected image to the hoverable card.
+             * @argument images The image to be displayed.
+             */
+            function displayMainImage(images) {
+                for (var index = 0; index < images.length; index++) {
+                    var image = images[index];
+                    var imageType = /^image\//;
+                    if (!imageType.test(file.type)) {
+                        continue;
+                    }
+                    var img = document.getElementById('mainImageUserFile');
+                    img.style.backgroundImage = "";
+                    var reader = new FileReader();
+                    reader.onload = (function (aimg) {
+                        return function (e) {
+                            aimg.src = e.target.result;
+                        };
+                    })(img);
+                    reader.readAsDataURL(file);
+                }
+            }
+
+        </script>
+    </body>
+
+</html>
