@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <?php
+/*
 if (!isset($_COOKIE["accUsername"])) {
     if (isset($_POST['u'])) {
         setcookie("accUsername", $_POST["u"], time() + (86400 * 30), "/");
+    }
+}
+*/
+if(!isset($_COOKIE["userdata"])){
+    if(isset($_POST["userdata"])){
+        setcookie("userdata", $_POST["userdata"], time()+(86400 * 30), "/");
+        print_r($_COOKIE["userdata"]);
     }
 }
 ?>
@@ -772,9 +780,12 @@ if (!isset($_COOKIE["accUsername"])) {
                     // code.
                 });
             }
-            var dcookie = keasy_getCookie('accUsername');
+            var dcookie = ((keasy_getCookie('userdata')));
+            var urlDecoded = decodeURIComponent(dcookie);
+            var userdata = JSON.parse(urlDecoded)["userdata"];
+            userdata = JSON.parse(userdata);
             if(!(dcookie==null)){
-                Materialize.toast('Welcome back, '+dcookie, 4000);
+                Materialize.toast('Welcome back, '+(userdata["firstName"]||userdata["username"]), 4000);
             }
         </script>
     </body>

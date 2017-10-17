@@ -10,6 +10,7 @@ class User
     public $contact_number;
     public $fbid, $gid, $keasyid;
     private $password;
+    public $account_type;
 
     public function __construct($username, $name_last = "", $name_first = "", $name_middle = "", $meetup_address = "", $contact = "", $fbid = "", $gid = "", $keasyid = "", $pass = "")
     {
@@ -63,7 +64,14 @@ class User
                 $results = $sql->fetch_assoc();
                 $verify = password_verify($password, $results['acc_Password']);
                 if ($verify) {
-                    $jsonRtn = array('status' => AccountStati::USERNAME_LOGGED_IN, 'statusMessage' => 'Account log in successful', 'username' => $this->username);
+                    $sql = $db->query("SELECT * FROM ". DB_TBL_ACCOUNTS . " WHERE acc_Username = '{$this->username}'");
+                    $results = $sql->fetch_assoc();
+                    $this->account_type = $results["acc_type"];
+                    $userdata = array("username"=> $this->username, "firstName"=>$results["acc_name_first"],
+                                      "middleName"=>$results["acc_name_mid"], "lastName"=> $results["acc_name_last"],
+                                      "accountType"=>$this->account_type);
+                    $userdata = json_encode($userdata);
+                    $jsonRtn = array('status' => AccountStati::USERNAME_LOGGED_IN, 'statusMessage' => 'Account log in successful', 'username' => $this->username, 'userdata'=>$userdata);
                     return json_encode($jsonRtn);
                 }
                 else {

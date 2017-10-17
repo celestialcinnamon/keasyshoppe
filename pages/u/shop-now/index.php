@@ -4,7 +4,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>SADism</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="../../../css/materialdesignicons.css">
         <link rel="stylesheet" href="../../../css/materialize.css">
         <link rel="stylesheet" href="../../../css/style.css">
         <style>
@@ -73,7 +73,7 @@
         </style>
     </head>
 
-    <body onload="fetchProductDetails()">
+    <body>
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper sad-crimson">
@@ -331,7 +331,21 @@
         <script src="../../../js/jquery.min.js"></script>
         <script src="../../../js/materialize.js"></script>
         <script src="../../../js/script.js"></script>
-        <script src="../../../js/actions.js"></script>
+        <script>
+            $(document).ready(()=>{
+                $.ajax({
+                    url: "products.php",
+                    method: "POST",
+                    dataType: "JSON",
+                    success: (data)=>{
+                        alert(JSON.stringify(data));
+                    },
+                    error: (data)=>{
+                        Materialize.toast(JSON.stringify(data));
+                    }
+                });
+            });
+        </script>
     </body>
 
 </html>

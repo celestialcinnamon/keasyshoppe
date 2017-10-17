@@ -17,38 +17,7 @@ $(document).ready(function () {
     $(document).ready(function () {
         $('.scrollspy').scrollSpy();
     });
-    $('.chips').material_chip();
-    $('.chips-initial').material_chip({});
-    $('.chips-placeholder').material_chip({
-        // placeholder: 'Enter category',
-        // secondaryPlaceholder: 'Enter category',
-        // autocompleteOptions: {
-        //     data: {
-        //         'All': null,
-        //         'Accessories': null,
-        //         'Devices': null,
-        //         'Clothing': null,
-        //         'Food': null,
-        //         'Pets': null
-        //     },
-        //     limit: Infinity,
-        //     minLength: 1
-        // }
-    });
-    $('.chips-placeholder.chips-autocomplete').material_chip({
-        autocompleteOptions: {
-            data: {
-                'All': null,
-                'Accessories': null,
-                'Devices': null,
-                'Clothing': null,
-                'Food': null,
-                'Pets': null
-            },
-            limit: Infinity,
-            minLength: 1
-        }
-    });
+
 
     $('.collapsible').collapsible();
     $('.tooltipped').tooltip({

@@ -1,19 +1,15 @@
 <?php 
 
-    $con = mysqli_connect('localhost', 'admin', 'keasyshoppe', 'db_testKeasy2');
-    mysqli_select_db($con, 'db_testKeasy2');
+    $con = mysqli_connect('localhost', 'admin', 'keasyshoppe', 'db_keasyshoppe');
+    mysqli_select_db($con, 'db_keasyshoppe');
 
     $sql = 'SELECT * FROM tblProducts';
     $result = mysqli_query($con, $sql);
 
     if(mysqli_num_rows($result) > 0){
-        $rows = null;
-        while($row = mysqli_fetch_assoc($result)){
-            $rows .= json_encode($row).",";
-        }
-        echo json_encode($rows);
+        echo json_encode(mysqli_fetch_assoc($result));
     }
     else{
-        echo "0 results";
+        echo json_encode(array("status"=>"0 results"));
     }
 ?>
