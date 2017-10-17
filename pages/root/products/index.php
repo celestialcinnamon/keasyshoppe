@@ -34,7 +34,17 @@ if(!isset($_COOKIE['userdata'])){
                 </div>
             </nav>
         </div>
-        <main class="section">
+        <main class="row section" id="main">
+            <div class="col s12 center" id="emptyState">
+                <p class="flow-text">You have no products yet.</p>
+                <button style="display: inline;" onclick="$('#main').slideToggle(); $('#addProducts').slideToggle();" class="btn sad-crimson waves-effect waves-block">Add products</button>
+            </div>
+            <section class="row section" style="display: none;" id="showProducts">
+
+            </section>
+        </main>
+        
+        <main class="section" style="display: none;" id="addProducts">
             <form action="./addproduct.php" method="post" id="addProductForm" enctype="multipart/formdata">
                 <div class="row section">
                     <div class="col s12 m4 l3">
@@ -42,6 +52,9 @@ if(!isset($_COOKIE['userdata'])){
                             <div class="card-image">
                                 <img src="http://localhost/keasyshoppe/images/user-offline-symbolic.svg" id="mainImageUserFile">
                                 <!-- <p class="card-title">Add an image for your product</p> -->
+                                <div class="progress" style="margin: 0 !important; display:none;" id="mainImage_progress">
+                                    <div class="indeterminate"></div>
+                                </div>
                             </div>
                             <div class="card-content">
                                 <div class="file-field input-field">
@@ -88,7 +101,7 @@ if(!isset($_COOKIE['userdata'])){
                     </div>
                 </div>
                 <div class="right" style="position: fixed; bottom: 0; right: 0; padding: 10px;">
-                    <button type="reset" class="btn-flat light-blue-text sad-waves-light-blue waves-effect">Cancel</button>
+                    <button type="reset" onclick="$('#main').slideToggle(); $('#addProducts').slideToggle();" class="btn-flat light-blue-text sad-waves-light-blue waves-effect">Cancel</button>
                     <button type="button" onclick="submitViaAjax();" class="btn sad-crimson waves-effect">Save</button>
                 </div>
             </form>
@@ -118,6 +131,7 @@ if(!isset($_COOKIE['userdata'])){
                     })(img);
                     reader.readAsDataURL(image);
                     $('#file-button').html('Change');
+                    
                 }
             }
             var images = 0;
@@ -142,21 +156,22 @@ if(!isset($_COOKIE['userdata'])){
                         }
                     })(img);
                     reader.readAsDataURL(file);
+                    var itemId = Date.now();
                     $('.sad-cards-container').append(
                         '<div class="card">' +
-                        '<div class="card-image" id="cardImage' + images + '">' +
+                        '<div class="card-image" id="cardImage' + itemId + '">' +
                         '<div class="close"></div>' +
                         '</div>' +
                         '</div>'
                     );
                     $('#cardImage' + itemId).append($(img));
                     console.log($('#secondaryImages').val());
-                    var k = new HTMLInputElement();
+                    uploadImagesViaAjax(file);
                 }
             }
             $(document).ready(() => {
                 $('.chips').material_chip({
-                    placeholder: 'Press <code>Enter</code> to add keyword.',
+                    placeholder: 'Press Enter to add keyword.',
                     secondaryPlaceholder: 'Press Enter to add',
                     autocompleteOptions: {
                         data: {
@@ -166,6 +181,7 @@ if(!isset($_COOKIE['userdata'])){
                         minLength: 1
                     }
                 });
+                fetchProductsByAjax();
             });
             /**
              * A function that submits the form by AJAX
@@ -190,7 +206,60 @@ if(!isset($_COOKIE['userdata'])){
                         $('#preloader').slideUp();
                     },
                     error: (data) => {
-                        alert(JSON.stringify(data));
+                        Materialize.toast("Something went wrong.");
+                        $('#preloader').slideUp();
+                        
+                    }
+                });
+            }
+
+            /**
+             * A function that uploads an image via AJAX
+             * @param file The file to be uploaded.
+             * @param progressBar The Materialize progress bar attached to the image card that will give the user information about the upload progress of the image
+             */
+            function uploadImagesViaAjax(file){
+                var uri = './uploadphotos.php';
+                var xhr = new XMLHttpRequest();
+                var fd = new FormData();
+
+                xhr.open('POST', uri, true);
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        Materialize.toast("Success!", 4000);
+                    }
+                };
+                fd.append('productPhoto', file);
+                xhr.send(fd);
+            }
+
+            /**
+             * A function that will fetch products by Ajax.
+             */
+            function fetchProductsByAjax(){
+                $.ajax({
+                    url: "./fetchproducts.php",
+                    method: "POST",
+                    dataType: "JSON",
+                    success: (data)=>{
+                        console.log(data);
+                        var div = '<div class="col s12 m4 l3">'+
+                        '<div class="card hoverable">'+
+                        '<div class="card-image">'+
+                        '<img src="'+data['prod_MainImage']+'" >'+
+                        '</div>'+
+                        '<div class="card-content">'+
+                        '<span class="card-title">'+data['prod_name']+'</span>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>';
+                        $('#showProducts').append(div);
+                        $('#showProducts').slideDown();
+                        $('#emptyState').slideUp();
+                    },
+                    error: (data)=>{
+                        Materialize.toast('Something went wrong. <a href="" class="btn-flat light-blue-text waves-effect waves-light">Learn More</a>', 5000);
+                        console.log(data);
                     }
                 });
             }

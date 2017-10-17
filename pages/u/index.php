@@ -10,7 +10,7 @@ if (!isset($_COOKIE["accUsername"])) {
 if(!isset($_COOKIE["userdata"])){
     if(isset($_POST["userdata"])){
         setcookie("userdata", $_POST["userdata"], time()+(86400 * 30), "/");
-        print_r($_COOKIE["userdata"]);
+#        print_r($_COOKIE["userdata"]);
     }
 }
 ?>
