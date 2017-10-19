@@ -1,17 +1,18 @@
 <?
-if(!isset($_COOKIE['userdata'])){
+if (!isset($_COOKIE['userdata'])) {
     echo "No user data";
     header('Location: http://localhost/keasyshoppe/');
-} else {
+}
+else {
     $userdata = json_decode($_COOKIE['userdata'], true);
-    if(json_decode($userdata['userdata'], true)['accountType'] != 'ADMIN'){
+    if (json_decode($userdata['userdata'], true)['accountType'] != 'ADMIN') {
         echo "Not an admin";
         header('Location: http://localhost/');
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
     <head>
         <meta charset="UTF-8">
@@ -40,15 +41,20 @@ if(!isset($_COOKIE['userdata'])){
                 <button style="display: inline;" onclick="$('#main').slideToggle(); $('#addProducts').slideToggle();" class="btn sad-crimson waves-effect waves-block">Add products</button>
             </div>
             <section class="row section" style="display: none;" id="showProducts">
+                <div class="fixed-action-btn">
+                    <button onclick="$('#main').slideToggle(); $('#addProducts').slideToggle();" class="btn-floating btn-large waves-effect waves-light red">
+                        <i class="material-icons">add</i>
+                    </button>
 
+                </div>
             </section>
         </main>
-        
+
         <main class="section" style="display: none;" id="addProducts">
             <form action="./addproduct.php" method="post" id="addProductForm" enctype="multipart/formdata">
                 <div class="row section">
                     <div class="col s12 m4 l3">
-                        <div class="card hoverable" id="mainImageCard">
+                        <div class="card hoverable waves-effect waves-block" onclick="document.getElementById('mainImagePicker').click()" id="mainImageCard">
                             <div class="card-image">
                                 <img src="http://localhost/keasyshoppe/images/user-offline-symbolic.svg" id="mainImageUserFile">
                                 <!-- <p class="card-title">Add an image for your product</p> -->
@@ -56,19 +62,7 @@ if(!isset($_COOKIE['userdata'])){
                                     <div class="indeterminate"></div>
                                 </div>
                             </div>
-                            <div class="card-content">
-                                <div class="file-field input-field">
-                                    <div class="btn-flat waves-effect light-blue-text">
-                                        <span><i class="mdi mdi-image-multiple left"></i>
-                                            <span id="file-button">Add</span>
-                                        </span>
-                                        <input type="file" accept="image/*" onchange="displayMainImage(this.files)">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
-                                    </div>
-                                </div>
-                            </div>
+                            <input type="file" accept="image/*" onchange="displayMainImage(this.files)" id="mainImagePicker" name="mainImage" hidden>
                         </div>
                         <button type="button" class="col s12 btn-flat waves-effect sad-waves-light-blue light-blue-text" onclick="$('#secondaryImages').click()"><i class="mdi mdi-image-multiple left"></i> Add secondary images</button>
                         <input multiple accepts="images/*" id="secondaryImages" name="secondaryImages" hidden onchange="displaySecondaryImages(this.files)"
@@ -110,6 +104,8 @@ if(!isset($_COOKIE['userdata'])){
         <script src="http://localhost/keasyshoppe/js/materialize.min.js"></script>
         <script src="http://localhost/keasyshoppe/js/script.js"></script>
         <script>
+            var filenames = ["secondaryImages"];
+            var mainImage_filename = ["mainImage"];
             /** 
              * This function displays the selected image to the hoverable card.
              * @argument images The image to be displayed.
@@ -131,7 +127,8 @@ if(!isset($_COOKIE['userdata'])){
                     })(img);
                     reader.readAsDataURL(image);
                     $('#file-button').html('Change');
-                    uploadImagesViaAjax(image, document.getElementById('mainImageCard'));
+                    //FIXME: Transfer to submitViaAjax()
+                    uploadImagesViaAjax(image, document.getElementById('mainImageCard'), true);
                 }
             }
             var images = 0;
@@ -166,7 +163,7 @@ if(!isset($_COOKIE['userdata'])){
                     );
                     $('#cardImage' + itemId).append($(img));
                     console.log($('#secondaryImages').val());
-                    uploadImagesViaAjax(file, document.getElementById('cardImage'+itemId));
+                    uploadImagesViaAjax(file, document.getElementById('cardImage' + itemId), false);
                 }
             }
             $(document).ready(() => {
@@ -187,7 +184,7 @@ if(!isset($_COOKIE['userdata'])){
              * A function that submits the form by AJAX
              * @author Francis Rubio
              */
-            function submitViaAjax(){
+            function submitViaAjax() {
                 $('#preloader').slideDown();
                 var prodName = $('#prodName').val();
                 var prodPrice = $('#prodPrice').val();
@@ -199,79 +196,95 @@ if(!isset($_COOKIE['userdata'])){
                     data: {
                         "prodName": $('#prodName').val(),
                         "prodprice": $('#prodPrice').val(),
-                        "prodDesc": $('#prodDesc').val()
+                        "prodDesc": $('#prodDesc').val(),
+                        "prodMainImage": JSON.stringify(mainImage_filename),
+                        "prodSecondaryImages": JSON.stringify(filenames)
                     },
                     success: (data) => {
-                        Materialize.toast("success: "+data["statusMessage"], 14000);
+                        Materialize.toast("Product inserted successfully.", 14000);
+                        console.log(data);
                         $('#preloader').slideUp();
                     },
                     error: (data) => {
                         Materialize.toast("Something went wrong.");
+                        console.log(data);
                         $('#preloader').slideUp();
-                        
                     }
                 });
             }
-
             /**
              * A function that uploads an image via AJAX
              * @param file The file to be uploaded.
-             * @param card The div element that will hold the data-filename attribute.
+             * @param card The HTML element that will hold the data-filename attribute.
              */
-            function uploadImagesViaAjax(file, card){
+            function uploadImagesViaAjax(file, card, isMainImage) {
                 var uri = './uploadphotos.php';
                 var xhr = new XMLHttpRequest();
                 var fd = new FormData();
-
                 xhr.open('POST', uri, true);
-                xhr.onreadystatechange = function(){
-                    if(xhr.readyState == 4 && xhr.status == 200){
-                        $(card).attr('data-filename', JSON.parse(xhr.responseText)["fileName"]);
-                    }
-                };
+                if (!isMainImage) {
+                    xhr.onreadystatechange = function () {
+                        console.log(xhr.responseText);
+                        if (xhr.readyState == 4 && xhr.status == 200) {   
+                            console.log(JSON.stringify(xhr.responseText));
+                            $(card).attr('data-filename', JSON.stringify(xhr.responseText)["fileName"]);
+                            filenames.unshift(JSON.stringify(xhr.responseText)["fileName"]);
+                        }
+                    };
+                } else {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            console.log(JSON.stringify(xhr.responseText));
+                            $(card).attr('data-filename', JSON.stringify(xhr.responseText)["fileName"]);
+                            mainImage_filename.unshift(JSON.parse(xhr.responseText)["fileName"]);
+                        }
+                    };
+                }
+                console.log(mainImage_filename, filenames);
                 fd.append('productPhoto', file);
                 xhr.send(fd);
             }
-
             /**
              * A function that will fetch products by Ajax.
              */
-            function fetchProductsByAjax(){
+            function fetchProductsByAjax() {
                 $.ajax({
                     url: "./fetchproducts.php",
                     method: "POST",
                     dataType: "JSON",
-                    success: (data)=>{
+                    success: (data) => {
                         console.log(data.length);
-                        if(data.length == 0){
+                        if (data.length == 0) {
                             $('#emptyState').slideDown();
                             return;
                         }
                         for (var index = 0; index < data.length; index++) {
                             var product = data[index];
-                            var div = '<div class="col s12 m4 l3">'+
-                            '<div class="card hoverable">'+
-                            '<div class="card-image">'+
-                            '<img src="'+product['prod_MainImage']+'" >'+
-                            '</div>'+
-                            '<div class="card-content">'+
-                            '<span class="card-title">'+product['prod_name']+'</span>'+
-                            '</div>'+
-                            '</div>'+
-                            '</div>';
+                            var div = '<div class="col s12 m4 l3">' +
+                                '<div class="card hoverable">' +
+                                '<div class="card-image">' +
+                                '<img src="https://localhost/keasyshoppe/images/uploads/' + JSON.parse(product['prod_MainImage'])[0] + '" >' +
+                                '</div>' +
+                                '<div class="card-content">' +
+                                '<span class="card-title">' + product['prod_name'] + '</span>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>';
                             $('#showProducts').append(div);
                             $('#showProducts').slideDown();
                         }
-                        
                         $('#emptyState').slideUp();
                     },
-                    error: (data)=>{
-                        Materialize.toast('Something went wrong. <a href="" class="btn-flat light-blue-text waves-effect waves-light">Learn More</a>', 5000);
+                    error: (data) => {
+                        Materialize.toast(
+                            'Something went wrong. <a href="" class="btn-flat light-blue-text waves-effect waves-light">Learn More</a>',
+                            5000);
                         console.log(data);
                     }
                 });
             }
+
         </script>
     </body>
 
-</html>
+    </html>
