@@ -48,7 +48,7 @@ if(!isset($_COOKIE['userdata'])){
             <form action="./addproduct.php" method="post" id="addProductForm" enctype="multipart/formdata">
                 <div class="row section">
                     <div class="col s12 m4 l3">
-                        <div class="card hoverable">
+                        <div class="card hoverable" id="mainImageCard">
                             <div class="card-image">
                                 <img src="http://localhost/keasyshoppe/images/user-offline-symbolic.svg" id="mainImageUserFile">
                                 <!-- <p class="card-title">Add an image for your product</p> -->
@@ -131,7 +131,7 @@ if(!isset($_COOKIE['userdata'])){
                     })(img);
                     reader.readAsDataURL(image);
                     $('#file-button').html('Change');
-                    
+                    uploadImagesViaAjax(image, document.getElementById('mainImageCard'));
                 }
             }
             var images = 0;
@@ -166,7 +166,7 @@ if(!isset($_COOKIE['userdata'])){
                     );
                     $('#cardImage' + itemId).append($(img));
                     console.log($('#secondaryImages').val());
-                    uploadImagesViaAjax(file);
+                    uploadImagesViaAjax(file, document.getElementById('cardImage'+itemId));
                 }
             }
             $(document).ready(() => {
@@ -216,9 +216,9 @@ if(!isset($_COOKIE['userdata'])){
             /**
              * A function that uploads an image via AJAX
              * @param file The file to be uploaded.
-             * @param progressBar The Materialize progress bar attached to the image card that will give the user information about the upload progress of the image
+             * @param card The div element that will hold the data-filename attribute.
              */
-            function uploadImagesViaAjax(file){
+            function uploadImagesViaAjax(file, card){
                 var uri = './uploadphotos.php';
                 var xhr = new XMLHttpRequest();
                 var fd = new FormData();
@@ -226,7 +226,7 @@ if(!isset($_COOKIE['userdata'])){
                 xhr.open('POST', uri, true);
                 xhr.onreadystatechange = function(){
                     if(xhr.readyState == 4 && xhr.status == 200){
-                        Materialize.toast("Success!", 4000);
+                        $(card).attr('data-filename', JSON.parse(xhr.responseText)["fileName"]);
                     }
                 };
                 fd.append('productPhoto', file);
@@ -242,19 +242,27 @@ if(!isset($_COOKIE['userdata'])){
                     method: "POST",
                     dataType: "JSON",
                     success: (data)=>{
-                        console.log(data);
-                        var div = '<div class="col s12 m4 l3">'+
-                        '<div class="card hoverable">'+
-                        '<div class="card-image">'+
-                        '<img src="'+data['prod_MainImage']+'" >'+
-                        '</div>'+
-                        '<div class="card-content">'+
-                        '<span class="card-title">'+data['prod_name']+'</span>'+
-                        '</div>'+
-                        '</div>'+
-                        '</div>';
-                        $('#showProducts').append(div);
-                        $('#showProducts').slideDown();
+                        console.log(data.length);
+                        if(data.length == 0){
+                            $('#emptyState').slideDown();
+                            return;
+                        }
+                        for (var index = 0; index < data.length; index++) {
+                            var product = data[index];
+                            var div = '<div class="col s12 m4 l3">'+
+                            '<div class="card hoverable">'+
+                            '<div class="card-image">'+
+                            '<img src="'+product['prod_MainImage']+'" >'+
+                            '</div>'+
+                            '<div class="card-content">'+
+                            '<span class="card-title">'+product['prod_name']+'</span>'+
+                            '</div>'+
+                            '</div>'+
+                            '</div>';
+                            $('#showProducts').append(div);
+                            $('#showProducts').slideDown();
+                        }
+                        
                         $('#emptyState').slideUp();
                     },
                     error: (data)=>{
