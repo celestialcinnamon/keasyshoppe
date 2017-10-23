@@ -37,8 +37,21 @@ else {
         </div>
         <main class="row section" id="main">
             <div class="col s12 center" id="emptyState">
-                <p class="flow-text">You have no products yet.</p>
-                <button style="display: inline;" onclick="$('#main').slideToggle(); $('#addProducts').slideToggle();" class="btn sad-crimson waves-effect waves-block">Add products</button>
+  <div id="circle_progress" class="preloader-wrapper active">
+    <div class="spinner-layer spinner-red-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+                <div id="empty_d" style="display:none;">
+                    <p class="flow-text">You have no products yet.</p>
+                    <button style="display: inline;" onclick="$('#main').slideToggle(); $('#addProducts').slideToggle();" class="btn sad-crimson waves-effect waves-block">Add products</button>
+                </div>
             </div>
             <section class="row section" style="display: none;" id="showProducts">
                 <div class="fixed-action-btn">
@@ -89,7 +102,7 @@ else {
                                 </select>
                             </div>
                             <div class="input-field col s12 m8 l8">
-                                <div class="chips"></div>
+                                <div id="chips_keywords" class="chips"></div>
                             </div>
                         </div>
                     </div>
@@ -99,6 +112,15 @@ else {
                     <button type="button" onclick="submitViaAjax();" class="btn sad-crimson waves-effect">Save</button>
                 </div>
             </form>
+            <main>
+                <div class="row">
+                   <div class="col s12 m4 l3">
+                        <div class="card">
+                            <div class="card-image"></div>
+                        </div>
+                   </div>
+                </div>
+            </main>
         </main>
         <script src="http://localhost/keasyshoppe/js/jquery.min.js"></script>
         <script src="http://localhost/keasyshoppe/js/materialize.min.js"></script>
@@ -189,6 +211,7 @@ else {
                 var prodName = $('#prodName').val();
                 var prodPrice = $('#prodPrice').val();
                 var prodDesc;
+                console.log(JSON.stringify($('#chips_keywords').material_chip('data')));
                 $.ajax({
                     method: "POST",
                     url: "addproduct.php",
@@ -198,7 +221,8 @@ else {
                         "prodprice": $('#prodPrice').val(),
                         "prodDesc": $('#prodDesc').val(),
                         "prodMainImage": JSON.stringify(mainImage_filename),
-                        "prodSecondaryImages": JSON.stringify(filenames)
+                        "prodSecondaryImages": JSON.stringify(filenames),
+                        "prodKeywords": JSON.stringify($('#chips_keywords').material_chip('data'))
                     },
                     success: (data) => {
                         Materialize.toast("Product inserted successfully.", 14000);
@@ -253,21 +277,23 @@ else {
                     method: "POST",
                     dataType: "JSON",
                     success: (data) => {
-                        console.log(data.length);
+                        $('#circle_progress').hide();
+                        $('#empty_d').show();
                         if (data.length == 0) {
                             $('#emptyState').slideDown();
                             return;
                         }
                         for (var index = 0; index < data.length; index++) {
                             var product = data[index];
+                            console.log(JSON.parse(JSON.stringify(product['prod_keywords']))['1']);
                             var div = '<div class="col s12 m4 l3">' +
-                                '<div class="card hoverable">' +
+                                '<div class="card waves-effect waves-block hoverable" onclick="displayProductDetails(this)" id="'+product['prod_ID']+'">' +
                                 '<div class="card-image">' +
                                 '<img src="https://localhost/keasyshoppe/images/uploads/' + JSON.parse(product['prod_MainImage'])[0] + '" >' +
                                 '</div>' +
                                 '<div class="card-content">' +
                                 '<span class="card-title">' + product['prod_name'] + '</span>' +
-                                '</div>' +
+                                + JSON.parse(JSON.stringify(product['prod_keywords'])) +
                                 '</div>' +
                                 '</div>';
                             $('#showProducts').append(div);
@@ -284,6 +310,10 @@ else {
                 });
             }
 
+
+            function displayProductDetails(productCard){
+                alert("You selected "+$(productCard).attr('id'));
+            }
         </script>
     </body>
 
